@@ -19,7 +19,7 @@ function CharacterGrid() {
   const page = searchParams.get('page') || '1';
   const offset = `offset=${page === '1' ? '0' : (Number(page) * LIMIT).toString()}&`;
   const limit = `limit=${LIMIT}&`;
-  const { fetchState: { state, data, error } } = useFetch<IApiResponse<ICharacters>>(`${ENDPOINTS.characters}?${filterName}${filterComics}${filterStories}${offset}${limit}${API_KEY}`);
+  const { state, data, error } = useFetch<IApiResponse<ICharacters>>(`${ENDPOINTS.characters}?${filterName}${filterComics}${filterStories}${offset}${limit}${API_KEY}`);
   /*   const paginationRange = usePagination(
     {
       totalCount: data?.data?.total,

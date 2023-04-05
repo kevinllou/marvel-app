@@ -27,9 +27,9 @@ function CharacterId() {
     favorites: true,
     hidden: true,
   });
-  const { fetchState: { state, data: character, error } } = useFetch<IApiResponse<ICharacters>>(`${ENDPOINTS.characters}/${idCharacter}?${API_CREDENTIALS}`);
-  const { fetchState: { data: comics } } = useFetch<IApiResponse<IComics>>(`${ENDPOINTS.characters}/${idCharacter}/comics?${API_CREDENTIALS}`);
-  const { fetchState: { data: stories } } = useFetch<IApiResponse<IStories>>(`${ENDPOINTS.characters}/${idCharacter}/stories?${API_CREDENTIALS}`);
+  const { state, data: character, error } = useFetch<IApiResponse<ICharacters>>(`${ENDPOINTS.characters}/${idCharacter}?${API_CREDENTIALS}`);
+  const { data: comics } = useFetch<IApiResponse<IComics>>(`${ENDPOINTS.characters}/${idCharacter}/comics?${API_CREDENTIALS}`);
+  const { data: stories } = useFetch<IApiResponse<IStories>>(`${ENDPOINTS.characters}/${idCharacter}/stories?${API_CREDENTIALS}`);
   const handleAddCharacterToFavorites = () => {
     setButtonsStatus({
       ...buttonsStatus,

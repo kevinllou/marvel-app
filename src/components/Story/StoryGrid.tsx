@@ -18,7 +18,7 @@ function StoriesGrid() {
   const offset = `offset=${page === '1' ? '0' : (Number(page) * LIMIT).toString()}&`;
   const limit = `limit=${LIMIT}&`;
 
-  const { fetchState: { state, data, error } } = useFetch<IApiResponse<IStories>>(`${ENDPOINTS.stories}?${characterValue}${offset}${limit}${API_CREDENTIALS}`);
+  const { state, data, error } = useFetch<IApiResponse<IStories>>(`${ENDPOINTS.stories}?${characterValue}${offset}${limit}${API_CREDENTIALS}`);
   /*   const paginationRange = usePagination(
     {
       totalCount: data?.data?.total,

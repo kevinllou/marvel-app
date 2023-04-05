@@ -16,9 +16,9 @@ function ComicId() {
   const { id } = useParams();
   const history = useNavigate();
   const comicId = Number(id);
-  const { fetchState: { state, data: comics, error } } = useFetch<IApiResponse<IComics>>(`${ENDPOINTS.comics}/${comicId}?${API_CREDENTIALS}`);
-  const { fetchState: { data: characters } } = useFetch<IApiResponse<ICharacters>>(`${ENDPOINTS.comics}/${comicId}/characters?${API_CREDENTIALS}`);
-  const { fetchState: { data: stories } } = useFetch<IApiResponse<IStories>>(`${ENDPOINTS.comics}/${comicId}/stories?${API_CREDENTIALS}`);
+  const { state, data: comics, error } = useFetch<IApiResponse<IComics>>(`${ENDPOINTS.comics}/${comicId}?${API_CREDENTIALS}`);
+  const { data: characters } = useFetch<IApiResponse<ICharacters>>(`${ENDPOINTS.comics}/${comicId}/characters?${API_CREDENTIALS}`);
+  const { data: stories } = useFetch<IApiResponse<IStories>>(`${ENDPOINTS.comics}/${comicId}/stories?${API_CREDENTIALS}`);
 
   if (state === 'loading') return <Spinner />;
   if (error) return <p>There was an error</p>;
