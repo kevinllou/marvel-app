@@ -64,7 +64,7 @@ function Header() {
             </li>
           </ul>
         </nav>
-        <div className="header__menuIcon" onClick={toggleMenu} role="menu" tabIndex={0}>Menu</div>
+        <div className="header__menuIcon" onClick={toggleMenu} role="menu" tabIndex={0}><i className="fa-solid fa-bars" /></div>
       </div>
     </section>
   );

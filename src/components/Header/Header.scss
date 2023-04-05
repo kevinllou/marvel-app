@@ -49,6 +49,9 @@
     &__menuIcon {
       cursor: pointer;
       z-index: 2;
+      i{
+        font-size: 1.8rem;
+      }
     }
     &__navigation {
       display: none;
