@@ -1,16 +1,9 @@
 /* eslint-disable @typescript-eslint/default-param-last */
 import { AnyAction } from 'redux';
-import ICharacters from '../interfaces/ICharacters';
-import IComics from '../interfaces/IComics';
-import IStories from '../interfaces/IStories';
 import ACTIONS_TYPES from '../constants/actionsTypes';
+import IResourcesType from '../interfaces/IResourcesType';
 
-type ResourcesType = {
-  characters: ICharacters[];
-  comics: IComics[];
-  stories: IStories[];
-};
-const initialState: ResourcesType = {
+const initialState: IResourcesType = {
   characters: [],
   comics: [],
   stories: [],
