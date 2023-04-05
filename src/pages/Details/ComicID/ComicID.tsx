@@ -10,14 +10,15 @@ import IApiResponse from '../../../interfaces/IApiResponse';
 import IStories from '../../../interfaces/IStories';
 import './ComicID.scss';
 import ROUTES from '../../../routes/routes';
+import IComics from '../../../interfaces/IComics';
 
 function ComicId() {
   const { id } = useParams();
   const history = useNavigate();
-  const idComic = Number(id);
-  const { fetchState: { state, data: comics, error } } = useFetch<IApiResponse<ICharacters>>(`${ENDPOINTS.comics}/${idComic}?${API_CREDENTIALS}`);
-  const { fetchState: { data: characters } } = useFetch<IApiResponse<ICharacters>>(`${ENDPOINTS.comics}/${idComic}/characters?${API_CREDENTIALS}`);
-  const { fetchState: { data: stories } } = useFetch<IApiResponse<IStories>>(`${ENDPOINTS.comics}/${idComic}/stories?${API_CREDENTIALS}`);
+  const comicId = Number(id);
+  const { fetchState: { state, data: comics, error } } = useFetch<IApiResponse<IComics>>(`${ENDPOINTS.comics}/${comicId}?${API_CREDENTIALS}`);
+  const { fetchState: { data: characters } } = useFetch<IApiResponse<ICharacters>>(`${ENDPOINTS.comics}/${comicId}/characters?${API_CREDENTIALS}`);
+  const { fetchState: { data: stories } } = useFetch<IApiResponse<IStories>>(`${ENDPOINTS.comics}/${comicId}/stories?${API_CREDENTIALS}`);
 
   if (state === 'loading') return <Spinner />;
   if (error) return <p>There was an error</p>;
@@ -28,15 +29,15 @@ function ComicId() {
           <button type="button" onClick={() => history(-1)}><i className="fa-solid fa-arrow-left" /></button>
         </div>
         {comics?.data?.results?.map(({
-          id: idCharacters, name, thumbnail, description,
+          id: idComic, title, thumbnail, description,
         }) => (
-          <div className="detail__card" key={idCharacters}>
+          <div className="detail__card" key={idComic}>
             <div className="detail__cardImg">
               <img src={`${thumbnail?.path}.${thumbnail?.extension}`} alt="imageId" />
             </div>
             <div className="detail__cardBody">
               <div className="detail__cardBodyInfo">
-                <p className="detail__cardBodyTitle">{name}</p>
+                <p className="detail__cardBodyTitle">{title}</p>
                 <p className="detail__cardDescription">{description || 'No available'}</p>
               </div>
               <div className="detail__cardBodyBottom">
