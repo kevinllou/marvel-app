@@ -1,0 +1,137 @@
+@import '../../styles/variables.scss';
+
+.comics {
+  h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    border-left: 7px solid $bg_red;
+    padding-left: 0.5rem;
+  }
+
+  &__grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  &__cardImage {
+    height: 250px;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+  }
+  &__gridItems {
+    margin-top: 1rem;
+    background-color: $bg_black;
+  }
+  &__cardBody {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.5rem 1rem;
+    border-top: 3px solid $bg_red;
+    color: $bg_white;
+    p {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+    }
+  }
+}
+
+.filter {
+  button {
+    margin-top: 0.5rem;
+    border: none;
+    background-color: $bg_black;
+    color: $bg_white;
+    font-family: $f-poppins;
+    font-size: 0.75rem;
+    padding: 0.3rem 1rem;
+    cursor: pointer;
+    border-radius: 1rem;
+  }
+  button:hover {
+    background-color: rgb(68, 68, 68);
+  }
+  &__formWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  &__filterOptions {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+    font-weight: 700;
+    gap: 0.5rem;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+      select {
+        font-family: $f_poppins;
+        padding: 0.3rem 1rem;
+        border: none;
+        background-color: $bg_red;
+        color: $bg_white;
+        font-weight: 400;
+        border-radius: 1rem;
+        width: 150px;
+      }
+    }
+    button {
+      padding: 0.45rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border: 2.5px solid $bg_red;
+      background-color: transparent;
+      border-radius: 4rem;
+      color: $bg_black;
+    }
+    button:hover {
+      background-color: $bg_red;
+      color: $bg_white;
+    }
+  }
+  &__formSearch {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: $bg_black;
+    border-radius: 4rem;
+    input {
+      width: 90%;
+      background-color: transparent;
+      border: none;
+      padding: 1rem;
+      color: $bg_white;
+    }
+    input:focus {
+      outline-style: none;
+    }
+    svg {
+      color: $bg_white;
+      align-self: center;
+    }
+    ::placeholder {
+      color: rgb(184, 184, 184);
+      font-family: $f_poppins;
+    }
+  }
+  @media (min-width: 30em) {
+    &__filterOptions {
+      flex-direction: row;
+      align-items: center;
+      button {
+        height: 100%;
+        width: 120px;
+      }
+    }
+  }
+}
