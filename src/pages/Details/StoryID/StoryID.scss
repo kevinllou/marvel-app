@@ -1,0 +1,135 @@
+@import '../../../styles/variables.scss';
+
+.detail {
+  background-color: $bg_black;
+  &__container {
+    padding: 3rem 1rem;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    font-family: $f-poppins;
+  }
+  &__goBack {
+    margin-bottom: 0.5rem;
+    button {
+      border: none;
+      background-color: $bg_red;
+      color: $bg_white;
+      border-radius: 4rem;
+      padding: 0.3rem 0.5rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #e75c5c;
+    }
+  }
+  @media (min-width: 40em) {
+    & {
+      padding: 3rem 4rem;
+    }
+  }
+  &__card {
+    background-color: #3b3b3bf5;
+    border-radius: 8px;
+  }
+  &__cardImg {
+    height: 270px;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 8px 8px 0 0;
+    }
+  }
+  @media (min-width: 40em) {
+    &__cardImg {
+      height: 500px;
+    }
+  }
+  &__cardBody {
+    padding: 0.5rem 2rem;
+  }
+  &__cardBodyInfo {
+    margin-bottom: 1rem;
+  }
+  &__cardBodyTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: $bg_white;
+  }
+  &__cardDescription {
+    margin-top: 0.5rem;
+    line-height: 1.1rem;
+    color: $bg_white;
+  }
+
+  &__cardBodyBottom {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    button {
+      display: flex;
+      justify-content: center;
+      gap: 0.4rem;
+      font-family: $f-poppins;
+      border: none;
+      padding: 0.3rem 2rem;
+      background-color: $bg_red;
+      color: #ffff;
+      font-weight: 700;
+      border-radius: 4rem;
+      cursor: pointer;
+    }
+  }
+  @media (min-width: 425px) {
+    &__cardBodyBottom {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+  &__comments {
+    padding: 1rem 0;
+    h1 {
+      font-size: 1.5rem;
+      color: #dddddd;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+  }
+  &__commentsBody {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    margin: 0.8rem 0;
+    border-radius: 8px;
+    background-color: rgb(255, 255, 255);
+  }
+  &__commentsUser {
+    p:first-child {
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+  }
+  &__characters,
+  &__comics {
+    color: $bg_white;
+    margin-top: 1rem;
+    h1 {
+      border-bottom: 5px solid $bg_red;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      padding-bottom: 0.3rem;
+      font-weight: 700;
+    }
+    li {
+      list-style: none;
+      cursor: pointer;
+      padding: 0.35rem;
+    }
+    li:hover {
+      background-color: #3d3c3c;
+    }
+  }
+}
