@@ -12,3 +12,12 @@ main {
   display: flex;
   flex-direction: column;
 }
+
+.characters,
+.comics,
+.stories {
+  width: 80%;
+  max-width: 1200px;
+  margin: 3rem auto;
+  font-family: $f_poppins;
+}
