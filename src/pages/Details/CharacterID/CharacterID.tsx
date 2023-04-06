@@ -6,7 +6,7 @@
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import './CharacterID.scss';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import ICharacters from '../../../interfaces/ICharacters';
 import API_CREDENTIALS from '../../../constants/api_backend_url';
 import ENDPOINTS from '../../../constants/endpoints';
@@ -17,27 +17,28 @@ import IComics from '../../../interfaces/IComics';
 import IStories from '../../../interfaces/IStories';
 import ROUTES from '../../../routes/routes';
 import { addCharacterToFavorites } from '../../../redux/actions';
+import IResourcesType from '../../../interfaces/IResourcesType';
+import { createCharacterObject } from '../../../helpers/createObjectType';
 
 function CharacterId() {
   const { id } = useParams();
   const history = useNavigate();
   const idCharacter = Number(id);
   const dispatch = useDispatch();
-  const [buttonsStatus, setButtonsStatus] = useState({
-    favorites: true,
-    hidden: true,
-  });
+  const charactersStore = useSelector((state: IResourcesType) => state.characters);
   const { state, data: character, error } = useFetch<IApiResponse<ICharacters>>(`${ENDPOINTS.characters}/${idCharacter}?${API_CREDENTIALS}`);
   const { data: comics } = useFetch<IApiResponse<IComics>>(`${ENDPOINTS.characters}/${idCharacter}/comics?${API_CREDENTIALS}`);
   const { data: stories } = useFetch<IApiResponse<IStories>>(`${ENDPOINTS.characters}/${idCharacter}/stories?${API_CREDENTIALS}`);
+  const [buttonsStatus, setButtonsStatus] = useState({
+    favorites: charactersStore.filter((item: ICharacters) => item.id === character?.data?.results?.[0].id).length > 0,
+    hidden: true,
+  });
   const handleAddCharacterToFavorites = () => {
     setButtonsStatus({
       ...buttonsStatus,
       favorites: false,
     });
-    const transformArray = (characters: ICharacters[] | null | undefined):ICharacters | null | undefined => characters?.[0];
-    const characterState = transformArray(character?.data?.results);
-    dispatch(addCharacterToFavorites(characterState));
+    dispatch(addCharacterToFavorites(createCharacterObject(character?.data?.results)));
   };
   if (state === 'loading') return <Spinner />;
   if (error) return <p>There was an error</p>;
@@ -63,7 +64,7 @@ function CharacterId() {
               <div className="detail__cardBodyBottom">
                 <button
                   type="button"
-                  style={{ backgroundColor: !buttonsStatus.favorites ? 'grey' : 'red', pointerEvents: !buttonsStatus.favorites ? 'none' : 'auto' }}
+                  style={{ backgroundColor: !buttonsStatus.favorites ? 'grey' : 'red' }}
                   onClick={handleAddCharacterToFavorites}
                 >
                   Like
