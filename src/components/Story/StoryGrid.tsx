@@ -1,24 +1,21 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useSearchParams } from 'react-router-dom';
-import API_CREDENTIALS from '../../constants/api_backend_url';
-import ENDPOINTS from '../../constants/endpoints';
 import useFetch from '../../hooks/useFetch';
 import IApiResponse from '../../interfaces/IApiResponse';
 import IStories from '../../interfaces/IStories';
 import Spinner from '../Spinner/Spinner';
 import StoryCard from './StoryCard';
+import createURLFetch from '../../helpers/createURLFetch';
+import IURLParams from '../../interfaces/IURLParams';
 /* import Pagination from '../Pagination/Pagination';
 import usePagination from '../../hooks/usePagination'; */
-
-const LIMIT = 20;
 function StoriesGrid() {
   const [searchParams] = useSearchParams();
-  const characterValue = searchParams.get('characters') ? `characters=${searchParams.get('characters')}&` : '';
-  const page = searchParams.get('page') || '1';
-  const offset = `offset=${page === '1' ? '0' : (Number(page) * LIMIT).toString()}&`;
-  const limit = `limit=${LIMIT}&`;
-
-  const { state, data, error } = useFetch<IApiResponse<IStories>>(`${ENDPOINTS.stories}?${characterValue}${offset}${limit}${API_CREDENTIALS}`);
+  const storiesFetch: IURLParams = {
+    characterParam: searchParams.get('characters') || '',
+    page: searchParams.get('page') || '1',
+  };
+  const { state, data, error } = useFetch<IApiResponse<IStories>>(createURLFetch(storiesFetch, 'stories'));
   /*   const paginationRange = usePagination(
     {
       totalCount: data?.data?.total,

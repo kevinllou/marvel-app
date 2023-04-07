@@ -6,16 +6,18 @@ function ComicFilter() {
   const searchRef = useRef<HTMLInputElement | null>(null);
   const formatRef = useRef<HTMLSelectElement | null>(null);
   const formRef = useRef<HTMLFormElement | null>(null);
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [, setSearchParams] = useSearchParams();
 
   const handleSubmit = (e: React.FormEvent<EventTarget>) => {
     e.preventDefault();
     const searchValue = searchRef.current?.value || '';
     const formatValue = formatRef.current?.value === 'null' ? '' : formatRef.current?.value || '';
-    searchParams.set('title', searchValue);
-    searchParams.delete('page');
-    searchParams.set('format', formatValue);
-    setSearchParams(searchParams);
+    const newSearchParams = new URLSearchParams({
+      title: searchValue,
+      format: formatValue,
+      page: '1',
+    });
+    setSearchParams(newSearchParams);
   };
   const clearFilters = () => {
     formRef.current?.reset();

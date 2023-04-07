@@ -6,14 +6,16 @@ import { useSearchParams } from 'react-router-dom';
 function StoryFilter() {
   const characterRef = useRef<HTMLSelectElement | null>(null);
   const formRef = useRef<HTMLFormElement | null>(null);
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [, setSearchParams] = useSearchParams();
 
   const handleSubmit = (e: React.FormEvent<EventTarget>) => {
     e.preventDefault();
     const characterValue = characterRef.current?.value === 'null' ? '' : characterRef.current?.value || '';
-    searchParams.set('characters', characterValue);
-    searchParams.delete('page');
-    setSearchParams(searchParams);
+    const newSearchParams = new URLSearchParams({
+      characters: characterValue,
+      page: '1',
+    });
+    setSearchParams(newSearchParams);
   };
   const clearFilters = () => {
     formRef.current?.reset();

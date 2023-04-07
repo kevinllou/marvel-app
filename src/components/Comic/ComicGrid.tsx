@@ -1,24 +1,22 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useSearchParams } from 'react-router-dom';
-import API_CREDENTIALS from '../../constants/api_backend_url';
-import ENDPOINTS from '../../constants/endpoints';
 import useFetch from '../../hooks/useFetch';
 import IApiResponse from '../../interfaces/IApiResponse';
 import IComics from '../../interfaces/IComics';
 import Spinner from '../Spinner/Spinner';
 import ComicCard from './ComicCard';
+import createURLFetch from '../../helpers/createURLFetch';
+import IURLParams from '../../interfaces/IURLParams';
 /* import usePagination from '../../hooks/usePagination';
 import Pagination from '../Pagination/Pagination'; */
-
-const LIMIT = 20;
 function ComicGrid() {
   const [searchParams] = useSearchParams();
-  const titleValue = searchParams.get('title') ? `title=${searchParams.get('title')}&` : '';
-  const formatValue = searchParams.get('format') ? `format=${searchParams.get('format')}&` : '';
-  const page = searchParams.get('page') || '1';
-  const offset = `offset=${page === '1' ? '0' : (Number(page) * LIMIT).toString()}&`;
-  const limit = `limit=${LIMIT}&`;
-  const { state, data, error } = useFetch<IApiResponse<IComics>>(`${ENDPOINTS.comics}?${titleValue}${formatValue}${offset}${limit}${API_CREDENTIALS}`);
+  const comicsFetch: IURLParams = {
+    titleParam: searchParams.get('title') || '',
+    formatParam: searchParams.get('format') || '',
+    page: searchParams.get('page') || '1',
+  };
+  const { state, data, error } = useFetch<IApiResponse<IComics>>(createURLFetch(comicsFetch, 'comics'));
   /*   const paginationRange = usePagination(
     {
       totalCount: data?.data?.total,
