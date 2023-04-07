@@ -29,7 +29,7 @@ function CharacterId() {
   const { data: stories } = useFetch<IApiResponse<IStories>>(`${ENDPOINTS.characters}/${idCharacter}/stories?${API_CREDENTIALS}`);
   const characterObject = createCharacterObject(character?.data?.results);
   const charactersStore = useSelector((state: IResourcesType) => state.characters);
-  const isInStore = charactersStore.find((item: ICharacters) => item.id === character?.data?.results?.[0].id) !== undefined;
+  const isInStore = !!charactersStore.find((item: ICharacters) => item.id === characterObject?.id);
 
   const handleAddCharacterToFavorites = () => {
     if (isInStore) {
