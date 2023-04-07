@@ -10,21 +10,23 @@ function CharacterFilter() {
   const comicsRef = useRef<HTMLSelectElement | null>(null);
   const storiesRef = useRef<HTMLSelectElement | null>(null);
   const formRef = useRef<HTMLFormElement | null>(null);
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [, setSearchParams] = useSearchParams();
 
   const handleSubmit = (e: React.FormEvent<EventTarget>) => {
     e.preventDefault();
     const comicValue = comicsRef.current?.value === 'null' ? '' : comicsRef.current?.value || '';
     const storieValue = storiesRef.current?.value === 'null' ? '' : storiesRef.current?.value || '';
-    const searchValue = searchRef.current?.value || '';
+    const searchValue = searchRef.current?.value ?? '';
 
-    searchParams.set('nameStartsWith', searchValue);
-    searchParams.delete('page');
-    searchParams.set('stories', storieValue);
-    searchParams.set('comics', comicValue);
-
-    setSearchParams(searchParams);
+    const newSearchParams = new URLSearchParams({
+      nameStartsWith: searchValue,
+      stories: storieValue,
+      comics: comicValue,
+      page: '1',
+    });
+    setSearchParams(newSearchParams);
   };
+
   const clearFilters = () => {
     formRef.current?.reset();
     setSearchParams({});
