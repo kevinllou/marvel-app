@@ -18,17 +18,17 @@ export const addStoryToFavorites = (story: IStories) => ({
   payload: story,
 });
 
-export const removeCharacterOfFavorites = (characterId: number) => ({
+export const removeCharacterOfFavorites = (characterId: number | undefined) => ({
   type: ACTIONS_TYPES.REMOVE_CHARACTER_OF_FAVORITES,
   payload: characterId,
 });
 
-export const removeComicOfFavorites = (comicId: number) => ({
+export const removeComicOfFavorites = (comicId: number | undefined) => ({
   type: ACTIONS_TYPES.REMOVE_COMIC_OF_FAVORITES,
   payload: comicId,
 });
 
-export const removeStoryOfFavorites = (storyId: number) => ({
+export const removeStoryOfFavorites = (storyId: number | undefined) => ({
   type: ACTIONS_TYPES.REMOVE_STORY_OF_FAVORITES,
   payload: storyId,
 });
