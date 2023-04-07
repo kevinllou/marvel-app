@@ -30,13 +30,15 @@ function CharacterId() {
   const characterObject = createCharacterObject(character?.data?.results);
   const charactersStore = useSelector((state: IResourcesType) => state.characters);
   const isInStore = charactersStore.find((item: ICharacters) => item.id === character?.data?.results?.[0].id) !== undefined;
+
   const handleAddCharacterToFavorites = () => {
     if (isInStore) {
-      dispatch(removeCharacterOfFavorites(character?.data?.results?.[0].id));
+      dispatch(removeCharacterOfFavorites(characterObject?.id));
       return;
     }
     dispatch(addCharacterToFavorites(characterObject));
   };
+
   if (state === 'loading') return <Spinner />;
   if (error) return <p>There was an error</p>;
 
