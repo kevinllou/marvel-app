@@ -27,6 +27,7 @@ function CharacterId() {
   const { state, data: character, error } = useFetch<IApiResponse<ICharacters>>(`${ENDPOINTS.characters}/${idCharacter}?${API_CREDENTIALS}`);
   const { data: comics } = useFetch<IApiResponse<IComics>>(`${ENDPOINTS.characters}/${idCharacter}/comics?${API_CREDENTIALS}`);
   const { data: stories } = useFetch<IApiResponse<IStories>>(`${ENDPOINTS.characters}/${idCharacter}/stories?${API_CREDENTIALS}`);
+  const characterObject = createCharacterObject(character?.data?.results);
   const charactersStore = useSelector((state: IResourcesType) => state.characters);
   const isInStore = charactersStore.find((item: ICharacters) => item.id === character?.data?.results?.[0].id) !== undefined;
   const handleAddCharacterToFavorites = () => {
@@ -34,7 +35,7 @@ function CharacterId() {
       dispatch(removeCharacterOfFavorites(character?.data?.results?.[0].id));
       return;
     }
-    dispatch(addCharacterToFavorites(createCharacterObject(character?.data?.results)));
+    dispatch(addCharacterToFavorites(characterObject));
   };
   if (state === 'loading') return <Spinner />;
   if (error) return <p>There was an error</p>;
@@ -45,37 +46,33 @@ function CharacterId() {
         <div className="detail__goBack">
           <button type="button" onClick={() => history(-1)}><i className="fa-solid fa-arrow-left" /></button>
         </div>
-        {character?.data?.results?.map(({
-          id: idCharacters, name, thumbnail, description,
-        }) => (
-          <div className="detail__card" key={idCharacters}>
-            <div className="detail__cardImg">
-              <img src={`${thumbnail?.path}.${thumbnail?.extension}`} alt="imageId" />
+        <div className="detail__card" key={characterObject?.id}>
+          <div className="detail__cardImg">
+            <img src={`${characterObject?.thumbnail?.path}.${characterObject?.thumbnail?.extension}`} alt="imageId" />
+          </div>
+          <div className="detail__cardBody">
+            <div className="detail__cardBodyInfo">
+              <p className="detail__cardBodyTitle">{characterObject?.name}</p>
+              <p className="detail__cardDescription">{characterObject?.description || 'No available'}</p>
             </div>
-            <div className="detail__cardBody">
-              <div className="detail__cardBodyInfo">
-                <p className="detail__cardBodyTitle">{name}</p>
-                <p className="detail__cardDescription">{description || 'No available'}</p>
-              </div>
-              <div className="detail__cardBodyBottom">
-                <button
-                  type="button"
-                  style={{ backgroundColor: isInStore ? 'grey' : 'red' }}
-                  onClick={handleAddCharacterToFavorites}
-                >
-                  Like
-                  {' '}
-                  <i className="fa-sharp fa-solid fa-heart" />
-                </button>
-                <button type="button">
-                  Hide
-                  {' '}
-                  <i className="fa-solid fa-eye-slash" />
-                </button>
-              </div>
+            <div className="detail__cardBodyBottom">
+              <button
+                type="button"
+                style={{ backgroundColor: isInStore ? 'grey' : 'red' }}
+                onClick={handleAddCharacterToFavorites}
+              >
+                Like
+                {' '}
+                <i className="fa-sharp fa-solid fa-heart" />
+              </button>
+              <button type="button">
+                Hide
+                {' '}
+                <i className="fa-solid fa-eye-slash" />
+              </button>
             </div>
           </div>
-        ))}
+        </div>
         <div className="detail__characterInfo">
           <div className="detail__comics">
             <h1>COMICS</h1>
