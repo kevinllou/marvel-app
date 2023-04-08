@@ -1,6 +1,6 @@
 import { createStore } from 'redux';
-import bookmarksReducer from './reducer';
+import reducers from './reducers';
 
-const store = createStore(bookmarksReducer);
+const store = createStore(reducers);
 
 export default store;

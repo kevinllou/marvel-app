@@ -33,8 +33,18 @@ function CharacterGrid() {
   return (
     <>
       <div className="characters__grid">
-        {data?.data?.results?.map(({ id, name, thumbnail }) => (
-          <CharacterCard key={id} name={name} thumbnail={thumbnail} id={id} />
+        {data?.data?.results?.map(({
+          id, name, thumbnail, description, comics, stories,
+        }) => (
+          <CharacterCard
+            key={id}
+            name={name}
+            thumbnail={thumbnail}
+            id={id}
+            description={description}
+            comics={comics}
+            stories={stories}
+          />
         ))}
       </div>
       {data && paginationRange?.length > 1

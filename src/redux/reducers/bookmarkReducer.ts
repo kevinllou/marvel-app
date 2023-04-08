@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/default-param-last */
 import { AnyAction } from 'redux';
-import ACTIONS_TYPES from '../constants/actionsTypes';
-import IResourcesType from '../interfaces/IResourcesType';
+import ACTIONS_TYPES from '../../constants/actionsTypes';
+import IResourcesType from '../../interfaces/IResourcesType';
 
 const initialState: IResourcesType = {
   characters: [],

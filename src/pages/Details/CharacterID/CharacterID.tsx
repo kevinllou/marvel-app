@@ -13,10 +13,10 @@ import IComics from '../../../interfaces/IComics';
 import IStories from '../../../interfaces/IStories';
 import ROUTES from '../../../routes/routes';
 import { addCharacterToFavorites, removeCharacterOfFavorites } from '../../../redux/actions';
-import IResourcesType from '../../../interfaces/IResourcesType';
 import { createCharacterObject } from '../../../helpers/createObjectType';
 import createURLFetch from '../../../helpers/createURLFetch';
 import Message from '../../../components/Message/Message';
+import IReducers from '../../../interfaces/IReducers';
 
 function CharacterId() {
   const { id } = useParams();
@@ -27,9 +27,8 @@ function CharacterId() {
   const { data: comics } = useFetch<IApiResponse<IComics>>(createURLFetch({}, 'characterComics', idCharacter));
   const { data: stories } = useFetch<IApiResponse<IStories>>(createURLFetch({}, 'characterStories', idCharacter));
   const characterObject = createCharacterObject(character?.data?.results);
-  const charactersStore = useSelector((state: IResourcesType) => state.characters);
+  const charactersStore = useSelector((state: IReducers) => state.bookmarksReducer.characters);
   const isInStore = !!charactersStore.find((item: ICharacters) => item.id === characterObject?.id);
-
   const handleAddCharacterToFavorites = () => {
     if (isInStore) {
       dispatch(removeCharacterOfFavorites(characterObject?.id));
