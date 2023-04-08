@@ -2,8 +2,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import ICharacters from '../../interfaces/ICharacters';
 import ROUTES from '../../routes/routes';
-import IResourcesType from '../../interfaces/IResourcesType';
-import { addCharacterToFavorites, removeCharacterOfFavorites } from '../../redux/actions';
+import { addCharacterToFavorites, removeCharacterOfFavorites, hideCharacter } from '../../redux/actions';
 import IReducers from '../../interfaces/IReducers';
 
 function CharacterCard({
@@ -11,10 +10,12 @@ function CharacterCard({
 }: ICharacters) {
   const dispatch = useDispatch();
   const charactersStore = useSelector((state: IReducers) => state.bookmarksReducer.characters);
-  const isInStore = !!charactersStore.find((item: ICharacters) => item.id === id);
+  const characterHidden = useSelector((state: IReducers) => state.hiddenReducer.characters);
+  const isCharacterInStore = !!charactersStore.find((item: ICharacters) => item.id === id);
+  const isCharacterHidden = !!characterHidden.find((item: number) => item === id);
 
   const handleAddCharacterToFavorites = () => {
-    if (isInStore) {
+    if (isCharacterInStore) {
       dispatch(removeCharacterOfFavorites(id));
       return;
     }
@@ -27,10 +28,11 @@ function CharacterCard({
       comics,
     }));
   };
-  /*   const handleHideCharacter = () => {
-      if(isInStore){
-        dispatch(remov)
-  }; */
+  const handleHideCharacter = () => {
+    if (!isCharacterHidden) {
+      dispatch(hideCharacter(id));
+    }
+  };
   return (
 
     <div className="characters__gridItems">
@@ -47,12 +49,19 @@ function CharacterCard({
           <div className="characters__options">
             <button
               type="button"
-              style={{ color: isInStore ? 'red' : 'white' }}
+              style={{ color: isCharacterInStore ? 'red' : 'white' }}
               onClick={handleAddCharacterToFavorites}
             >
               <i className="fa-sharp fa-solid fa-heart" />
             </button>
-            <button type="button">
+            <button
+              type="button"
+              onClick={handleHideCharacter}
+              style={{
+                color: isCharacterHidden ? 'red' : 'white',
+                pointerEvents: isCharacterHidden ? 'none' : 'auto',
+              }}
+            >
               <i className="fa-solid fa-eye-slash" />
             </button>
           </div>

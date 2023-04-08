@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useSearchParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import CharacterCard from './CharacterCard';
 import Spinner from '../Spinner/Spinner';
 import useFetch from '../../hooks/useFetch';
@@ -10,9 +11,11 @@ import IURLParams from '../../interfaces/IURLParams';
 import Pagination from '../Pagination/Pagination';
 import usePagination from '../../hooks/usePagination';
 import Message from '../Message/Message';
+import IReducers from '../../interfaces/IReducers';
 
 function CharacterGrid() {
   const [searchParams] = useSearchParams();
+  const characterHidden = useSelector((state: IReducers) => state.hiddenReducer.characters);
   const charactersFecth: IURLParams = {
     nameStartsWith: searchParams.get('nameStartsWith') || '',
     comicParam: searchParams.get('comics') || '',
@@ -33,19 +36,21 @@ function CharacterGrid() {
   return (
     <>
       <div className="characters__grid">
-        {data?.data?.results?.map(({
-          id, name, thumbnail, description, comics, stories,
-        }) => (
-          <CharacterCard
-            key={id}
-            name={name}
-            thumbnail={thumbnail}
-            id={id}
-            description={description}
-            comics={comics}
-            stories={stories}
-          />
-        ))}
+        {data?.data?.results
+          ?.filter(({ id }, key) => id !== characterHidden[key])
+          .map(({
+            id, name, thumbnail, description, comics, stories,
+          }) => (
+            <CharacterCard
+              key={id}
+              id={id}
+              name={name}
+              thumbnail={thumbnail}
+              description={description}
+              comics={comics}
+              stories={stories}
+            />
+          ))}
       </div>
       {data && paginationRange?.length > 1
       && <Pagination currentPage={charactersFecth.page} paginationRange={paginationRange || []} />}

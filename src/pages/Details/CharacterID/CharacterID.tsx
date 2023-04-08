@@ -29,6 +29,9 @@ function CharacterId() {
   const characterObject = createCharacterObject(character?.data?.results);
   const charactersStore = useSelector((state: IReducers) => state.bookmarksReducer.characters);
   const isInStore = !!charactersStore.find((item: ICharacters) => item.id === characterObject?.id);
+  const characterHidden = useSelector((state: IReducers) => state.hiddenReducer.characters);
+  const isCharacterHidden = characterHidden.find((id) => id === characterObject?.id);
+
   const handleAddCharacterToFavorites = () => {
     if (isInStore) {
       dispatch(removeCharacterOfFavorites(characterObject?.id));
@@ -65,10 +68,18 @@ function CharacterId() {
                 {' '}
                 <i className="fa-sharp fa-solid fa-heart" />
               </button>
-              <button type="button">
+              <button
+                type="button"
+                style={{
+                  backgroundColor: isCharacterHidden ? 'grey' : 'red',
+                  pointerEvents: isCharacterHidden ? 'none' : 'auto',
+                }}
+              >
                 Hide
                 {' '}
-                <i className="fa-solid fa-eye-slash" />
+                <i
+                  className="fa-solid fa-eye-slash"
+                />
               </button>
             </div>
           </div>

@@ -3,7 +3,7 @@ import IResourcesType from './IResourcesType';
 
 interface IReducers {
   bookmarksReducer: IResourcesType,
-  hiddenResources: HiddenResourcesType
+  hiddenReducer: HiddenResourcesType
 }
 
 export default IReducers;

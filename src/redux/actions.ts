@@ -36,3 +36,21 @@ export const removeStoryOfFavorites = (storyId: number | undefined) => ({
 export const removeAllFavorites = () => ({
   type: ACTIONS_TYPES.REMOVE_ALL_FAVORITES,
 });
+export const hideCharacter = (characterId: number) => ({
+  type: ACTIONS_TYPES.HIDE_CHARACTER,
+  payload: characterId,
+});
+
+export const hideComic = (comicId: number) => ({
+  type: ACTIONS_TYPES.HIDE_COMIC,
+  payload: comicId,
+});
+
+export const hideStory = (storyId: number) => ({
+  type: ACTIONS_TYPES.HIDE_STORY,
+  payload: storyId,
+});
+
+export const resetHiddenResources = () => ({
+  type: ACTIONS_TYPES.RESET_HIDDEN_RESOURCES,
+});

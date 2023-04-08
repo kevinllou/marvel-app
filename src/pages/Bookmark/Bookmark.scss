@@ -4,7 +4,27 @@
     max-width: 1200px;
     margin: 3rem auto;
     font-family: $f-poppins;
-  
+
+    &__options{
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin:1rem 0;
+
+      button{
+        padding: .5rem 1rem;
+        border: none;
+        font-family: $f-poppins;
+        background-color: $bg_black;
+        color: $bg_white;
+        border-radius: 25px;
+        cursor: pointer;
+
+      }
+      button:hover{
+        background-color: #3f3f3f;
+      }
+    }
     &__grid {
       display: grid;
       gap: 2rem;
@@ -64,6 +84,11 @@
       &__grid {
         grid-template-columns: 1fr 1fr;
       }
+    }
+    @media (min-width: 475px) {
+    &__options{
+      flex-direction: row;
+    }
     }
   }
   
