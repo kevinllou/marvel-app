@@ -11,6 +11,12 @@
         background-color: $bg_black;
        color: $bg_white;
     }
+    &__next:disabled,
+    &__prev:disabled{
+        background-color: #00000048;
+       color: $bg_white;
+       pointer-events: none;
+    }
     &__btn,
     &__next,
     &__prev{
