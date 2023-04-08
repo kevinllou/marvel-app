@@ -9,6 +9,7 @@ import CharacterID from '../pages/Details/CharacterID/CharacterID';
 import ComicID from '../pages/Details/ComicID/ComicID';
 import StoryID from '../pages/Details/StoryID/StoryID';
 import Bookmark from '../pages/Bookmark/Bookmark';
+import Error404 from '../pages/Error404/Error404';
 
 function MarvelRoutes() {
   return (
@@ -23,9 +24,7 @@ function MarvelRoutes() {
           <Route path={ROUTES.COMICS_ID} element={<ComicID />} />
           <Route path={ROUTES.STORIES_ID} element={<StoryID />} />
           <Route path={ROUTES.BOOKMARKS} element={<Bookmark />} />
-          {/*
-
-          <Route path="*" element={<Error404 />} /> */}
+          <Route path="*" element={<Error404 />} />
         </Routes>
       </LayoutRoute>
     </BrowserRouter>
