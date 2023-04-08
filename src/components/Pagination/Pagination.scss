@@ -5,6 +5,7 @@
     margin-top: .8rem;
     display: flex;
     gap: .5rem;
+    overflow-x: auto;
 
     &__next,
     &__prev{
@@ -21,11 +22,11 @@
     &__next,
     &__prev{
         font-family: $f-poppins;
-        width: 30px;
         height: 25px;
         border: none;
         border-radius: 100%;
         cursor: pointer;
+        padding: 0 .5rem;
     }
     &__btn--active {
       background-color: $bg_red;
@@ -39,8 +40,9 @@
         &__btn,
         &__next,
         &__prev{
-            width: 30px;
-            height: 30px;
+            width: 35px;
+            height: 33px;
+            padding: 0;
         }
     }
 }

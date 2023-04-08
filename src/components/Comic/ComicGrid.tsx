@@ -7,8 +7,9 @@ import Spinner from '../Spinner/Spinner';
 import ComicCard from './ComicCard';
 import createURLFetch from '../../helpers/createURLFetch';
 import IURLParams from '../../interfaces/IURLParams';
-/* import usePagination from '../../hooks/usePagination';
-import Pagination from '../Pagination/Pagination'; */
+import usePagination from '../../hooks/usePagination';
+import Pagination from '../Pagination/Pagination';
+
 function ComicGrid() {
   const [searchParams] = useSearchParams();
   const comicsFetch: IURLParams = {
@@ -17,13 +18,13 @@ function ComicGrid() {
     page: searchParams.get('page') || '1',
   };
   const { state, data, error } = useFetch<IApiResponse<IComics>>(createURLFetch(comicsFetch, 'comics'));
-  /*   const paginationRange = usePagination(
+  const paginationRange = usePagination(
     {
-      totalCount: data?.data?.total,
-      pageSize: LIMIT,
-      currentPage: page,
+      totalCount: data?.data?.total || 0,
+      pageSize: 20,
+      currentPage: Number(comicsFetch.page),
     },
-  ); */
+  );
   if (state === 'loading') return <Spinner />;
   if (error) return <p>There was an error</p>;
 
@@ -40,7 +41,7 @@ function ComicGrid() {
           />
         ))}
       </div>
-      {/*   <Pagination currentPage={page} paginationRange={paginationRange} /> */}
+      <Pagination currentPage={comicsFetch.page} paginationRange={paginationRange} />
     </>
   );
 }

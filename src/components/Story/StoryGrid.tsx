@@ -7,8 +7,9 @@ import Spinner from '../Spinner/Spinner';
 import StoryCard from './StoryCard';
 import createURLFetch from '../../helpers/createURLFetch';
 import IURLParams from '../../interfaces/IURLParams';
-/* import Pagination from '../Pagination/Pagination';
-import usePagination from '../../hooks/usePagination'; */
+import Pagination from '../Pagination/Pagination';
+import usePagination from '../../hooks/usePagination';
+
 function StoriesGrid() {
   const [searchParams] = useSearchParams();
   const storiesFetch: IURLParams = {
@@ -16,13 +17,13 @@ function StoriesGrid() {
     page: searchParams.get('page') || '1',
   };
   const { state, data, error } = useFetch<IApiResponse<IStories>>(createURLFetch(storiesFetch, 'stories'));
-  /*   const paginationRange = usePagination(
+  const paginationRange = usePagination(
     {
-      totalCount: data?.data?.total,
-      pageSize: LIMIT,
-      currentPage: page,
+      totalCount: data?.data?.total || 0,
+      pageSize: 20,
+      currentPage: Number(storiesFetch.page),
     },
-  ); */
+  );
 
   if (state === 'loading') return <Spinner />;
   if (error) return <p>There was an error</p>;
@@ -34,8 +35,7 @@ function StoriesGrid() {
           <StoryCard key={id} title={title} thumbnail={thumbnail} id={id} />
         ))}
       </div>
-      {/*   <Pagination currentPage={page} paginationRange={paginationRange} />
- */}
+      <Pagination currentPage={storiesFetch.page} paginationRange={paginationRange} />
     </>
   );
 }
