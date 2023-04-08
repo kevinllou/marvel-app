@@ -2,8 +2,6 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import ICharacters from '../../../interfaces/ICharacters';
-import API_CREDENTIALS from '../../../constants/api_backend_url';
-import ENDPOINTS from '../../../constants/endpoints';
 import useFetch from '../../../hooks/useFetch';
 import Spinner from '../../../components/Spinner/Spinner';
 import IApiResponse from '../../../interfaces/IApiResponse';
@@ -11,14 +9,15 @@ import IStories from '../../../interfaces/IStories';
 import './ComicID.scss';
 import ROUTES from '../../../routes/routes';
 import IComics from '../../../interfaces/IComics';
+import createURLFetch from '../../../helpers/createURLFetch';
 
 function ComicId() {
   const { id } = useParams();
   const history = useNavigate();
   const comicId = Number(id);
-  const { state, data: comics, error } = useFetch<IApiResponse<IComics>>(`${ENDPOINTS.comics}/${comicId}?${API_CREDENTIALS}`);
-  const { data: characters } = useFetch<IApiResponse<ICharacters>>(`${ENDPOINTS.comics}/${comicId}/characters?${API_CREDENTIALS}`);
-  const { data: stories } = useFetch<IApiResponse<IStories>>(`${ENDPOINTS.comics}/${comicId}/stories?${API_CREDENTIALS}`);
+  const { state, data: comics, error } = useFetch<IApiResponse<IComics>>(createURLFetch({}, 'comic_id', comicId));
+  const { data: characters } = useFetch<IApiResponse<ICharacters>>(createURLFetch({}, 'comicCharacters', comicId));
+  const { data: stories } = useFetch<IApiResponse<IStories>>(createURLFetch({}, 'comicStories', comicId));
 
   if (state === 'loading') return <Spinner />;
   if (error) return <p>There was an error</p>;

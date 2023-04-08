@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable react/no-unescaped-entities */
@@ -7,8 +6,6 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import './CharacterID.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import ICharacters from '../../../interfaces/ICharacters';
-import API_CREDENTIALS from '../../../constants/api_backend_url';
-import ENDPOINTS from '../../../constants/endpoints';
 import useFetch from '../../../hooks/useFetch';
 import Spinner from '../../../components/Spinner/Spinner';
 import IApiResponse from '../../../interfaces/IApiResponse';
@@ -18,15 +15,16 @@ import ROUTES from '../../../routes/routes';
 import { addCharacterToFavorites, removeCharacterOfFavorites } from '../../../redux/actions';
 import IResourcesType from '../../../interfaces/IResourcesType';
 import { createCharacterObject } from '../../../helpers/createObjectType';
+import createURLFetch from '../../../helpers/createURLFetch';
 
 function CharacterId() {
   const { id } = useParams();
   const history = useNavigate();
   const idCharacter = Number(id);
   const dispatch = useDispatch();
-  const { state, data: character, error } = useFetch<IApiResponse<ICharacters>>(`${ENDPOINTS.characters}/${idCharacter}?${API_CREDENTIALS}`);
-  const { data: comics } = useFetch<IApiResponse<IComics>>(`${ENDPOINTS.characters}/${idCharacter}/comics?${API_CREDENTIALS}`);
-  const { data: stories } = useFetch<IApiResponse<IStories>>(`${ENDPOINTS.characters}/${idCharacter}/stories?${API_CREDENTIALS}`);
+  const { state, data: character, error } = useFetch<IApiResponse<ICharacters>>(createURLFetch({}, 'character_id', idCharacter));
+  const { data: comics } = useFetch<IApiResponse<IComics>>(createURLFetch({}, 'characterComics', idCharacter));
+  const { data: stories } = useFetch<IApiResponse<IStories>>(createURLFetch({}, 'characterStories', idCharacter));
   const characterObject = createCharacterObject(character?.data?.results);
   const charactersStore = useSelector((state: IResourcesType) => state.characters);
   const isInStore = !!charactersStore.find((item: ICharacters) => item.id === characterObject?.id);

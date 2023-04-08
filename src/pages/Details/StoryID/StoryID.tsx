@@ -2,22 +2,21 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import ICharacters from '../../../interfaces/ICharacters';
-import API_CREDENTIALS from '../../../constants/api_backend_url';
-import ENDPOINTS from '../../../constants/endpoints';
 import useFetch from '../../../hooks/useFetch';
 import Spinner from '../../../components/Spinner/Spinner';
 import IApiResponse from '../../../interfaces/IApiResponse';
 import IStories from '../../../interfaces/IStories';
 import './StoryID.scss';
 import ROUTES from '../../../routes/routes';
+import createURLFetch from '../../../helpers/createURLFetch';
 
 function StoryID() {
   const { id } = useParams();
   const history = useNavigate();
   const idStory = Number(id);
-  const { state, data: stories, error } = useFetch<IApiResponse<IStories>>(`${ENDPOINTS.stories}/${idStory}?${API_CREDENTIALS}`);
-  const { data: characters } = useFetch<IApiResponse<ICharacters>>(`${ENDPOINTS.stories}/${idStory}/characters?${API_CREDENTIALS}`);
-  const { data: comics } = useFetch<IApiResponse<IStories>>(`${ENDPOINTS.stories}/${idStory}/comics?${API_CREDENTIALS}`);
+  const { state, data: stories, error } = useFetch<IApiResponse<IStories>>(createURLFetch({}, 'story_id', idStory));
+  const { data: characters } = useFetch<IApiResponse<ICharacters>>(createURLFetch({}, 'storyCharacters', idStory));
+  const { data: comics } = useFetch<IApiResponse<IStories>>(createURLFetch({}, 'storyComics', idStory));
 
   if (state === 'loading') return <Spinner />;
   if (error) return <p>There was an error</p>;
