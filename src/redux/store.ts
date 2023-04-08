@@ -1,6 +1,18 @@
-import { createStore } from 'redux';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { createStore, applyMiddleware, compose } from 'redux';
+import storage from 'redux-persist/lib/storage';
+import { persistReducer } from 'redux-persist';
+import persistStore from 'redux-persist/es/persistStore';
 import reducers from './reducers';
 
-const store = createStore(reducers);
+const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const persistConfig = {
+  key: 'marvel_app',
+  storage,
+};
+const persistedReducer = persistReducer(persistConfig, reducers);
 
-export default store;
+const store = createStore(persistedReducer, composeEnhancers(applyMiddleware()));
+const persistor = persistStore(store);
+
+export { store, persistor };
