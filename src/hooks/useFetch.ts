@@ -2,25 +2,23 @@
 import { useState, useEffect, useRef } from 'react';
 import IUseFetchState from '../interfaces/IUseFetchState';
 
-type Cache<T> = { [url: string]: T };
-
 const useFetch = <T>(url: string) => {
   const [fetchState, setFetchState] = useState<IUseFetchState<T>>({
     state: 'idle',
     data: null,
     error: null,
   });
-  const cache = useRef<Cache<T>>({});
+  const cache = useRef(null);
   // Used to prevent state update if the component is unmounted
   const cancelRequest = useRef<boolean>(false);
 
   useEffect(() => {
     cancelRequest.current = false;
     const fetchData = async () => {
-      if (cache.current[url]) {
+      if (cache.current) {
         setFetchState((oldValues) => ({
           ...oldValues,
-          data: cache.current[url],
+          data: cache.current,
         }));
         return;
       }
@@ -35,6 +33,7 @@ const useFetch = <T>(url: string) => {
           return;
         }
         const dataJson = await response.json();
+        cache.current = dataJson;
         setFetchState({ data: dataJson, state: 'success', error: null });
       } catch (error) {
         setFetchState({
