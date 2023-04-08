@@ -5,20 +5,18 @@
     margin-top: .8rem;
     display: flex;
     gap: .5rem;
-    overflow-x: auto;
 
     &__next,
     &__prev{
         background-color: $bg_black;
        color: $bg_white;
-       font-size: 1rem;
     }
     &__btn,
     &__next,
     &__prev{
         font-family: $f-poppins;
         width: 30px;
-        height: 30px;
+        height: 25px;
         border: none;
         border-radius: 100%;
         cursor: pointer;
@@ -31,6 +29,12 @@
     @media (min-width: 500px){
         &{
             justify-content: center;
+        }
+        &__btn,
+        &__next,
+        &__prev{
+            width: 30px;
+            height: 30px;
         }
     }
 }
