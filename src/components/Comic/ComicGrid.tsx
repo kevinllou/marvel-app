@@ -9,6 +9,7 @@ import createURLFetch from '../../helpers/createURLFetch';
 import IURLParams from '../../interfaces/IURLParams';
 import usePagination from '../../hooks/usePagination';
 import Pagination from '../Pagination/Pagination';
+import Message from '../Message/Message';
 
 function ComicGrid() {
   const [searchParams] = useSearchParams();
@@ -27,11 +28,11 @@ function ComicGrid() {
   );
   if (state === 'loading') return <Spinner />;
   if (error) return <p>There was an error</p>;
+  if (data?.data?.results?.length === 0) return <Message typeMessage="We couldn't find more comics" />;
 
   return (
     <>
       <div className="characters__grid">
-        {data?.data?.results?.length === 0 && <p style={{ paddingTop: '.5rem' }}>We couldn't find any data ...</p>}
         {data?.data?.results?.map(({ id, title, thumbnail }) => (
           <ComicCard
             key={id}

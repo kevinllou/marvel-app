@@ -9,6 +9,7 @@ import IStories from '../../../interfaces/IStories';
 import './StoryID.scss';
 import ROUTES from '../../../routes/routes';
 import createURLFetch from '../../../helpers/createURLFetch';
+import Message from '../../../components/Message/Message';
 
 function StoryID() {
   const { id } = useParams();
@@ -19,7 +20,7 @@ function StoryID() {
   const { data: comics } = useFetch<IApiResponse<IStories>>(createURLFetch({}, 'storyComics', idStory));
 
   if (state === 'loading') return <Spinner />;
-  if (error) return <p>There was an error</p>;
+  if (error) return <Message typeMessage="This story does not exist" />;
   return (
     <section className="detail">
       <div className="detail__container">

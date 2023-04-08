@@ -9,6 +9,7 @@ import createURLFetch from '../../helpers/createURLFetch';
 import IURLParams from '../../interfaces/IURLParams';
 import Pagination from '../Pagination/Pagination';
 import usePagination from '../../hooks/usePagination';
+import Message from '../Message/Message';
 
 function StoriesGrid() {
   const [searchParams] = useSearchParams();
@@ -27,10 +28,10 @@ function StoriesGrid() {
 
   if (state === 'loading') return <Spinner />;
   if (error) return <p>There was an error</p>;
+  if (data?.data?.results?.length === 0) return <Message typeMessage="We couldn't find more stories" />;
   return (
     <>
       <div className="characters__grid">
-        {data?.data?.results?.length === 0 && <p style={{ paddingTop: '.5rem' }}>We couldn't find any data ...</p>}
         {data?.data?.results?.map(({ id, title, thumbnail }) => (
           <StoryCard key={id} title={title} thumbnail={thumbnail} id={id} />
         ))}

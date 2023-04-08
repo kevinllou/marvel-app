@@ -1,0 +1,25 @@
+@import '../../styles/variables.scss';
+
+.message{
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: rgba(24, 19, 7, 0.925);
+    border-radius: 4px;
+    p {
+        text-align: center;
+        font-family: $f-poppins;
+        color: rgb(244,198,198);
+        font-size: .9rem;
+    
+    }
+    i{
+        color: rgb(233,152,34)
+        
+    }
+}

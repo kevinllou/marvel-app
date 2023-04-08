@@ -16,6 +16,7 @@ import { addCharacterToFavorites, removeCharacterOfFavorites } from '../../../re
 import IResourcesType from '../../../interfaces/IResourcesType';
 import { createCharacterObject } from '../../../helpers/createObjectType';
 import createURLFetch from '../../../helpers/createURLFetch';
+import Message from '../../../components/Message/Message';
 
 function CharacterId() {
   const { id } = useParams();
@@ -38,7 +39,7 @@ function CharacterId() {
   };
 
   if (state === 'loading') return <Spinner />;
-  if (error) return <p>There was an error</p>;
+  if (error) return <Message typeMessage="This character does not exist" />;
 
   return (
     <section className="detail">
