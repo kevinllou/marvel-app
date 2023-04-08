@@ -36,7 +36,7 @@ function CharacterGrid() {
           <CharacterCard key={id} name={name} thumbnail={thumbnail} id={id} />
         ))}
       </div>
-      {state === 'success' && paginationRange?.length > 1
+      {data && paginationRange?.length > 1
       && <Pagination currentPage={charactersFecth.page} paginationRange={paginationRange || []} />}
 
     </>
