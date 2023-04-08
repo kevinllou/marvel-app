@@ -7,8 +7,8 @@ import IApiResponse from '../../interfaces/IApiResponse';
 import ICharacters from '../../interfaces/ICharacters';
 import createURLFetch from '../../helpers/createURLFetch';
 import IURLParams from '../../interfaces/IURLParams';
-/* import Pagination from '../Pagination/Pagination';
-import usePagination from '../../hooks/usePagination'; */
+import Pagination from '../Pagination/Pagination';
+import usePagination from '../../hooks/usePagination';
 
 function CharacterGrid() {
   const [searchParams] = useSearchParams();
@@ -19,13 +19,13 @@ function CharacterGrid() {
     page: searchParams.get('page') || '1',
   };
   const { state, data, error } = useFetch<IApiResponse<ICharacters>>(createURLFetch(charactersFecth, 'characters'));
-  /*   const paginationRange = usePagination(
+  const paginationRange = usePagination(
     {
-      totalCount: data?.data?.total,
-      pageSize: LIMIT,
-      currentPage: page,
+      totalCount: data?.data?.total || 0,
+      pageSize: 20,
+      currentPage: Number(charactersFecth.page),
     },
-  ); */
+  );
   if (state === 'loading') return <Spinner />;
   if (error) return <p>There was an error</p>;
   return (
@@ -36,9 +36,8 @@ function CharacterGrid() {
           <CharacterCard key={id} name={name} thumbnail={thumbnail} id={id} />
         ))}
       </div>
-      {/*       <Pagination currentPage={page} paginationRange={paginationRange} />
- */}
-      {' '}
+      {state === 'success' && paginationRange?.length > 1
+      && <Pagination currentPage={charactersFecth.page} paginationRange={paginationRange || []} />}
 
     </>
   );

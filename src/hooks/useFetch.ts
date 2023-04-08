@@ -8,20 +8,20 @@ const useFetch = <T>(url: string) => {
     data: null,
     error: null,
   });
-  const cache = useRef(null);
+  /*   const cache = useRef(null); */
   // Used to prevent state update if the component is unmounted
   const cancelRequest = useRef<boolean>(false);
 
   useEffect(() => {
     cancelRequest.current = false;
     const fetchData = async () => {
-      if (cache.current) {
+      /* if (cache.current) {
         setFetchState((oldValues) => ({
           ...oldValues,
           data: cache.current,
         }));
         return;
-      }
+      } */
       try {
         setFetchState((oldValues) => ({
           ...oldValues,
@@ -33,7 +33,7 @@ const useFetch = <T>(url: string) => {
           return;
         }
         const dataJson = await response.json();
-        cache.current = dataJson;
+        /*   cache.current = dataJson; */
         setFetchState({ data: dataJson, state: 'success', error: null });
       } catch (error) {
         setFetchState({

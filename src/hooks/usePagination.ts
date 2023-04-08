@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 interface IPaginationHook {
   totalCount: number,
   pageSize:number,
-  siblingCount: number,
+  siblingCount?: number,
   currentPage: number,
 }
 const DOTS = '...';
@@ -19,7 +19,7 @@ const usePagination = ({
   currentPage,
 }:IPaginationHook) => {
   const paginationRange = useMemo(() => {
-    const totalPageCount = Math.ceil(totalCount / pageSize);
+    const totalPageCount = Math.floor(totalCount / pageSize);
 
     const totalPageNumbers = siblingCount + 5;
 
@@ -59,7 +59,7 @@ const usePagination = ({
       const middleRange = range(leftSiblingIndex, rightSiblingIndex);
       return [firstPageIndex, DOTS, ...middleRange, DOTS, lastPageIndex];
     }
-    return null;
+    return [];
   }, [totalCount, pageSize, siblingCount, currentPage]);
 
   return paginationRange;
