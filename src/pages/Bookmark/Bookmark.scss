@@ -2,8 +2,14 @@
 .bookmarks {
     width: 80%;
     max-width: 1200px;
-    margin: 3rem auto;
+    margin: 0 auto;
     font-family: $f-poppins;
+
+    h2{
+      font-weight: 700;
+      margin: 1rem 0;
+      font-size: 1.3rem;
+    }
 
     &__options{
       display: flex;

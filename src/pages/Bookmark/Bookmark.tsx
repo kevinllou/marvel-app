@@ -27,6 +27,7 @@ function Bookmark() {
       <div className="bookmarks__favorites">
         <h2>CHARACTERS</h2>
         <div className="bookmarks__grid">
+          {characters.length === 0 && <Message typeMessage="There are not any characters yet" />}
           {characters.map(({
             id, name, thumbnail, description, comics, stories,
           }: ICharacters) => (
@@ -45,6 +46,7 @@ function Bookmark() {
       <div className="bookmarks__favorites">
         <h2>COMICS</h2>
         <div className="bookmarks__grid">
+          {comics.length === 0 && <Message typeMessage="There are not any comics yet" />}
           {comics.map(({
             id, title, thumbnail, description, characters, stories,
           }: IComics) => (
@@ -63,6 +65,7 @@ function Bookmark() {
       <div className="bookmarks__favorites">
         <h2>STORIES</h2>
         <div className="bookmarks__grid">
+          {stories.length === 0 && <Message typeMessage="There are not any stories yet" />}
           {stories.map(({
             id, title, thumbnail, description, characters, comics, type,
           }: IStories) => (
