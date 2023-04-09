@@ -12,7 +12,7 @@ import IApiResponse from '../../../interfaces/IApiResponse';
 import IComics from '../../../interfaces/IComics';
 import IStories from '../../../interfaces/IStories';
 import ROUTES from '../../../routes/routes';
-import { addCharacterToFavorites, removeCharacterOfFavorites } from '../../../redux/actions';
+import { addCharacterToFavorites, hideCharacter, removeCharacterOfFavorites } from '../../../redux/actions';
 import { createCharacterObject } from '../../../helpers/createObjectType';
 import createURLFetch from '../../../helpers/createURLFetch';
 import Message from '../../../components/Message/Message';
@@ -38,6 +38,12 @@ function CharacterId() {
       return;
     }
     dispatch(addCharacterToFavorites(characterObject));
+  };
+
+  const handleHideCharacter = () => {
+    if (!isCharacterHidden && characterObject?.id) {
+      dispatch(hideCharacter(characterObject.id));
+    }
   };
 
   if (state === 'loading') return <Spinner />;
@@ -74,6 +80,7 @@ function CharacterId() {
                   backgroundColor: isCharacterHidden ? 'grey' : 'red',
                   pointerEvents: isCharacterHidden ? 'none' : 'auto',
                 }}
+                onClick={handleHideCharacter}
               >
                 Hide
                 {' '}

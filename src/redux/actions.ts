@@ -8,12 +8,12 @@ export const addCharacterToFavorites = (character: ICharacters | null | undefine
   payload: character,
 });
 
-export const addComicToFavorites = (comic: IComics) => ({
+export const addComicToFavorites = (comic: IComics | null | undefined) => ({
   type: ACTIONS_TYPES.ADD_COMIC_TO_FAVORITES,
   payload: comic,
 });
 
-export const addStoryToFavorites = (story: IStories) => ({
+export const addStoryToFavorites = (story: IStories | null | undefined) => ({
   type: ACTIONS_TYPES.ADD_STORY_TO_FAVORITES,
   payload: story,
 });

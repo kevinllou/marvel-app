@@ -22,6 +22,22 @@
       object-position: center center;
     }
   }
+  &__options{
+    display: flex;
+    justify-content: space-between; 
+    button{
+      color: $bg_white;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      background-color: transparent;
+      font-family: $f-poppins;
+      border-radius: 15px;
+    }
+    i{
+      font-size: 1rem;
+    }
+  }
   &__gridItems {
     margin-top: 1rem;
     background-color: $bg_black;
@@ -33,10 +49,16 @@
     padding: 1.5rem 1rem;
     border-top: 3px solid $bg_red;
     color: $bg_white;
-    p {
+    a{
       font-weight: 700;
+      text-decoration: none;
       text-transform: uppercase;
       font-size: 0.95rem;
+      color: $bg_white;
+      cursor: pointer;
+    }
+    a:hover {
+      color: rgb(143, 142, 142);
     }
   }
 }
