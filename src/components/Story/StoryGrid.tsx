@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useSearchParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import useFetch from '../../hooks/useFetch';
 import IApiResponse from '../../interfaces/IApiResponse';
 import IStories from '../../interfaces/IStories';
@@ -10,9 +11,11 @@ import IURLParams from '../../interfaces/IURLParams';
 import Pagination from '../Pagination/Pagination';
 import usePagination from '../../hooks/usePagination';
 import Message from '../Message/Message';
+import IReducers from '../../interfaces/IReducers';
 
 function StoriesGrid() {
   const [searchParams] = useSearchParams();
+  const storyHidden = useSelector((state: IReducers) => state.hiddenReducer.stories);
   const storiesFetch: IURLParams = {
     characterParam: searchParams.get('characters') || '',
     page: searchParams.get('page') || '1',
@@ -32,9 +35,22 @@ function StoriesGrid() {
   return (
     <>
       <div className="characters__grid">
-        {data?.data?.results?.map(({ id, title, thumbnail }) => (
-          <StoryCard key={id} title={title} thumbnail={thumbnail} id={id} />
-        ))}
+        {data?.data?.results
+          ?.filter(({ id }, key) => id !== storyHidden[key])
+          .map(({
+            id, title, thumbnail, type, description, characters, comics,
+          }) => (
+            <StoryCard
+              key={id}
+              id={id}
+              title={title}
+              thumbnail={thumbnail}
+              type={type}
+              description={description}
+              characters={characters}
+              comics={comics}
+            />
+          ))}
       </div>
       <Pagination currentPage={storiesFetch.page} paginationRange={paginationRange} />
     </>
