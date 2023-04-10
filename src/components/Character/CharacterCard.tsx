@@ -38,7 +38,7 @@ function CharacterCard({
     <div className="characters__gridItems">
       <div className="characters__card">
         <div className="characters__cardImage">
-          <img src={thumbnail?.path !== undefined ? `${thumbnail?.path}.${thumbnail?.extension}` : thumbnail} alt="" />
+          <img src={`${thumbnail?.path}.${thumbnail?.extension}`} alt={name} />
         </div>
         <div className="characters__cardBody">
           <div className="characters__name">

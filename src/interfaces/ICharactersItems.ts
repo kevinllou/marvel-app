@@ -1,9 +1,8 @@
 interface ICharactersItems {
-  items?: [
-    {
-      resourceURI: string;
-      name: string;
-    },
-  ]
+  items?:
+  {
+    resourceURI: string;
+    name: string;
+  }[],
 }
 export default ICharactersItems;

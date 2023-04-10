@@ -6,7 +6,7 @@ interface ICharacters {
   id: number;
   name: string;
   description?: string;
-  thumbnail?: IThumbnail & string;
+  thumbnail?: IThumbnail;
   comics: IComicsItems;
   stories: IStoriesItems;
 
