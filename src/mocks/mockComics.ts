@@ -36,7 +36,7 @@ const mockComics = {
       },
       {
         id: 82965,
-        title: 'Marvel Previews (2017)',
+        title: 'Marvel (2017)',
         description: '',
         thumbnail: {
           path: 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available',

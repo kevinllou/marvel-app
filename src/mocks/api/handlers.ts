@@ -2,6 +2,7 @@
 import { rest } from 'msw';
 import ENDPOINTS from '../../constants/endpoints';
 import mockCharacters from '../mockCharacters';
+import mockComics from '../mockComics';
 
 const charactersHandler = rest.get(`${ENDPOINTS.characters}`, (req, res, ctx) => {
   const nameParameter = req.url.searchParams.get('nameStartsWith');
@@ -1228,11 +1229,14 @@ const charactersStories = rest.get(`${ENDPOINTS.characters}/1011334/stories`, (r
   },
 
 })));
+
+const comicHandler = rest.get(`${ENDPOINTS.comics}`, (req, res, ctx) => res(ctx.status(200), ctx.json(mockComics)));
 const handlers = [
   charactersHandler,
   charactersDetailHandler,
   charactersComics,
   charactersStories,
+  comicHandler,
 ];
 
 export default handlers;

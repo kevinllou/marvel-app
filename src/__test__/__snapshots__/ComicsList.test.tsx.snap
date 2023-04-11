@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Characters List Component should render list of comics 1`] = `
+<div>
+  <div
+    class="characters__grid"
+  >
+    <div
+      class="comics__gridItems"
+    >
+      <div
+        class="comics__card"
+      >
+        <div
+          class="comics__cardImage"
+        >
+          <img
+            alt=""
+            src="http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg"
+          />
+        </div>
+        <div
+          class="comics__cardBody"
+        >
+          <div
+            class="comics__name"
+          >
+            <a
+              href="/comics/82967"
+            >
+              Marvel Previews (2017)
+            </a>
+          </div>
+          <div
+            class="comics__options"
+          >
+            <button
+              style="color: white;"
+              type="button"
+            >
+              <i
+                class="fa-sharp fa-solid fa-heart"
+              />
+            </button>
+            <button
+              style="color: white; pointer-events: auto;"
+              type="button"
+            >
+              <i
+                class="fa-solid fa-eye-slash"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="comics__gridItems"
+    >
+      <div
+        class="comics__card"
+      >
+        <div
+          class="comics__cardImage"
+        >
+          <img
+            alt=""
+            src="http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg"
+          />
+        </div>
+        <div
+          class="comics__cardBody"
+        >
+          <div
+            class="comics__name"
+          >
+            <a
+              href="/comics/82965"
+            >
+              Marvel (2017)
+            </a>
+          </div>
+          <div
+            class="comics__options"
+          >
+            <button
+              style="color: white;"
+              type="button"
+            >
+              <i
+                class="fa-sharp fa-solid fa-heart"
+              />
+            </button>
+            <button
+              style="color: white; pointer-events: auto;"
+              type="button"
+            >
+              <i
+                class="fa-solid fa-eye-slash"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section
+    class="pagination"
+  >
+    <button
+      class="pagination__prev"
+      disabled=""
+      type="button"
+    >
+      <i
+        class="fa-solid fa-angle-left"
+      />
+    </button>
+    <button
+      class="pagination__btn pagination__btn--active"
+      style="pointer-events: auto;"
+      type="button"
+    >
+      1
+    </button>
+    <button
+      class="pagination__btn"
+      style="pointer-events: auto;"
+      type="button"
+    >
+      2
+    </button>
+    <button
+      class="pagination__btn"
+      style="pointer-events: auto;"
+      type="button"
+    >
+      3
+    </button>
+    <button
+      class="pagination__btn"
+      style="pointer-events: auto;"
+      type="button"
+    >
+      4
+    </button>
+    <button
+      class="pagination__btn"
+      style="pointer-events: auto;"
+      type="button"
+    >
+      5
+    </button>
+    <button
+      class="pagination__btn"
+      style="pointer-events: none;"
+      type="button"
+    >
+      ...
+    </button>
+    <button
+      class="pagination__btn"
+      style="pointer-events: auto;"
+      type="button"
+    >
+      78
+    </button>
+    <button
+      class="pagination__next"
+      type="button"
+    >
+      <i
+        class="fa-solid fa-angle-right"
+      />
+    </button>
+  </section>
+</div>
+`;
