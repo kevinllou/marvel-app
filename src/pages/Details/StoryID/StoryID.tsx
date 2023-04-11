@@ -65,6 +65,7 @@ function StoryID() {
                 type="button"
                 style={{ backgroundColor: isStoryInStore ? 'grey' : 'red' }}
                 onClick={handleAddStoryToFavorites}
+                data-testid="icon-heart"
               >
                 Like
                 {' '}
@@ -77,6 +78,7 @@ function StoryID() {
                   pointerEvents: isStoryHidden ? 'none' : 'auto',
                 }}
                 onClick={handleHideStory}
+                data-testid="icon-hide"
               >
                 Hide
                 {' '}
