@@ -1,6 +1,6 @@
-import mockCharacters from '../__mocks__/mockCharacters';
-import mockComics from '../__mocks__/mockComics';
-import mockStories from '../__mocks__/mockStories';
+import mockCharacters from '../mocks/mockCharacters';
+import mockComics from '../mocks/mockComics';
+import mockStories from '../mocks/mockStories';
 import IResourcesType from '../interfaces/IResourcesType';
 import {
   addCharacterToFavorites,
@@ -29,9 +29,9 @@ it('should add a character to bookmarks', () => {
     comics: [],
     stories: [],
   };
-  const action = addCharacterToFavorites(mockCharacters?.[0]);
+  const action = addCharacterToFavorites(mockCharacters.data.results?.[0]);
   const newState = bookmarksReducer(previousState, action);
-  expect(newState.characters).toEqual([mockCharacters?.[0]]);
+  expect(newState.characters).toEqual([mockCharacters.data.results?.[0]]);
 });
 
 it('should add a comic to bookmarks', () => {
@@ -62,7 +62,7 @@ it('should delete one character from bookmarks', () => {
     comics: [],
     stories: [],
   };
-  const action = removeCharacterOfFavorites(mockCharacters?.[1].id);
+  const action = removeCharacterOfFavorites(mockCharacters.data?.results?.[1].id);
   const newState = bookmarksReducer(previousState, action);
   expect(newState.characters).toEqual([]);
 });

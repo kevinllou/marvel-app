@@ -22,7 +22,7 @@
       "linebreak-style": [0, "error", "unix"],
       "react/react-in-jsx-scope": 0
     },
-    "ignorePatterns": [".eslintrc.json"]
+    "ignorePatterns": [".eslintrc.json", "jest.config.js"]
   
   }
   

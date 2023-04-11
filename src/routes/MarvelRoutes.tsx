@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import LayoutRoute from './LayoutRoute';
 import ROUTES from './routes';
 import Home from '../pages/Home/Home';
@@ -13,21 +13,19 @@ import Error404 from '../pages/Error404/Error404';
 
 function MarvelRoutes() {
   return (
-    <BrowserRouter>
-      <LayoutRoute>
-        <Routes>
-          <Route path={ROUTES.HOME} element={<Home />} />
-          <Route path={ROUTES.CHARACTERS} element={<Characters />} />
-          <Route path={ROUTES.COMICS} element={<Comics />} />
-          <Route path={ROUTES.STORIES} element={<Stories />} />
-          <Route path={ROUTES.CHARACTERS_ID} element={<CharacterID />} />
-          <Route path={ROUTES.COMICS_ID} element={<ComicID />} />
-          <Route path={ROUTES.STORIES_ID} element={<StoryID />} />
-          <Route path={ROUTES.BOOKMARKS} element={<Bookmark />} />
-          <Route path="*" element={<Error404 />} />
-        </Routes>
-      </LayoutRoute>
-    </BrowserRouter>
+    <LayoutRoute>
+      <Routes>
+        <Route path={ROUTES.HOME} element={<Home />} />
+        <Route path={ROUTES.CHARACTERS} element={<Characters />} />
+        <Route path={ROUTES.COMICS} element={<Comics />} />
+        <Route path={ROUTES.STORIES} element={<Stories />} />
+        <Route path={ROUTES.CHARACTERS_ID} element={<CharacterID />} />
+        <Route path={ROUTES.COMICS_ID} element={<ComicID />} />
+        <Route path={ROUTES.STORIES_ID} element={<StoryID />} />
+        <Route path={ROUTES.BOOKMARKS} element={<Bookmark />} />
+        <Route path="*" element={<Error404 />} />
+      </Routes>
+    </LayoutRoute>
   );
 }
 

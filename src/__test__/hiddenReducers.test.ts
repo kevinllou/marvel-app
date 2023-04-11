@@ -1,6 +1,6 @@
-import mockCharacters from '../__mocks__/mockCharacters';
-import mockComics from '../__mocks__/mockComics';
-import mockStories from '../__mocks__/mockStories';
+import mockCharacters from '../mocks/mockCharacters';
+import mockComics from '../mocks/mockComics';
+import mockStories from '../mocks/mockStories';
 import HiddenResourcesType from '../interfaces/IHiddenResource';
 import {
   hideCharacter, hideComic, hideStory, resetHiddenResources,
@@ -13,9 +13,9 @@ it('should hide a character from the list', () => {
     comics: [],
     stories: [],
   };
-  const action = hideCharacter(mockCharacters?.[0].id);
+  const action = hideCharacter(mockCharacters.results?.[0].id);
   const newState = hiddenReducer(previousState, action);
-  expect(newState.characters).toEqual([mockCharacters?.[0].id]);
+  expect(newState.characters).toEqual([mockCharacters.results?.[0].id]);
 });
 
 it('should hide a comic from the list', () => {

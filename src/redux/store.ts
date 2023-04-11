@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createStore, applyMiddleware, compose } from 'redux';
 import storage from 'redux-persist/lib/storage';
-import { persistReducer } from 'redux-persist';
-import persistStore from 'redux-persist/es/persistStore';
+import { persistStore, persistReducer } from 'redux-persist';
 import reducers from './reducers';
 
 const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

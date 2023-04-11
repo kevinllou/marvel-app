@@ -1,0 +1,253 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Characters details page should render details component 1`] = `
+<div>
+  <div
+    class="App"
+  >
+    <section
+      class="header"
+    >
+      <div
+        class="header__container"
+      >
+        <div
+          class="header__logo"
+        >
+          <img
+            alt="marvel logo"
+            class="header__bgImage"
+            src="marvel-icon.png"
+          />
+        </div>
+        <nav
+          class="header__navigation"
+        >
+          <ul
+            class="header__navList"
+          >
+            <li
+              class="header__navItems"
+            >
+              <a
+                class=""
+                href="/"
+              >
+                Home
+              </a>
+            </li>
+            <li
+              class="header__navItems"
+            >
+              <a
+                aria-current="page"
+                class="header__activeLink"
+                href="/characters"
+              >
+                Characters
+              </a>
+            </li>
+            <li
+              class="header__navItems"
+            >
+              <a
+                class=""
+                href="/comics"
+              >
+                Comics
+              </a>
+            </li>
+            <li
+              class="header__navItems"
+            >
+              <a
+                class=""
+                href="/stories"
+              >
+                Stories
+              </a>
+            </li>
+            <li
+              class="header__navItems"
+            >
+              <a
+                class=""
+                href="/bookmarks"
+              >
+                Bookmarks
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div
+          class="header__menuIcon"
+          role="menu"
+          tabindex="0"
+        >
+          <i
+            class="fa-solid fa-bars"
+          />
+        </div>
+      </div>
+    </section>
+    <main>
+      <section
+        class="detail"
+      >
+        <div
+          class="detail__container"
+        >
+          <div
+            class="detail__goBack"
+          >
+            <button
+              type="button"
+            >
+              <i
+                class="fa-solid fa-arrow-left"
+              />
+            </button>
+          </div>
+          <div
+            class="detail__card"
+          >
+            <div
+              class="detail__cardImg"
+            >
+              <img
+                alt="imageId"
+                src="http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg"
+              />
+            </div>
+            <div
+              class="detail__cardBody"
+            >
+              <div
+                class="detail__cardBodyInfo"
+              >
+                <p
+                  class="detail__cardBodyTitle"
+                >
+                  3-D Man
+                </p>
+                <p
+                  class="detail__cardDescription"
+                >
+                  No available
+                </p>
+              </div>
+              <div
+                class="detail__cardBodyBottom"
+              >
+                <button
+                  data-testid="icon-heart"
+                  style="background-color: red;"
+                  type="button"
+                >
+                  Like
+                   
+                  <i
+                    class="fa-sharp fa-solid fa-heart"
+                  />
+                </button>
+                <button
+                  data-testid="icon-hide"
+                  style="background-color: red; pointer-events: auto;"
+                  type="button"
+                >
+                  Hide
+                   
+                  <i
+                    class="fa-solid fa-eye-slash"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="detail__characterInfo"
+          >
+            <div
+              class="detail__comics"
+            >
+              <h1>
+                COMICS
+              </h1>
+              <a
+                href="/comics/22506"
+              >
+                <li>
+                  Avengers: The Initiative (2007) #19
+                </li>
+              </a>
+              <a
+                href="/comics/22300"
+              >
+                <li>
+                  Avengers: The Initiative (2007) #18 (ZOMBIE VARIANT)
+                </li>
+              </a>
+              <a
+                href="/comics/22299"
+              >
+                <li>
+                  Avengers: The Initiative (2007) #18
+                </li>
+              </a>
+            </div>
+            <div
+              class="detail__stories"
+            >
+              <h1>
+                STORIES
+              </h1>
+              <a
+                href="/stories/19947"
+              >
+                <li>
+                  Cover #19947
+                </li>
+              </a>
+              <a
+                href="/stories/19948"
+              >
+                <li>
+                  The 3-D Man!
+                </li>
+              </a>
+              <a
+                href="/stories/19949"
+              >
+                <li>
+                  Cover #19949
+                </li>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer
+      class="footer"
+    >
+      <div
+        class="footer__container"
+      >
+        <div
+          class="footer__image"
+        >
+          <img
+            alt="marvel logo"
+            src="marvel-icon.png"
+          />
+        </div>
+        <p
+          class="footer__copyright"
+        >
+          Made by Kevin😎. Applaudo Studios 2023
+        </p>
+      </div>
+    </footer>
+  </div>
+</div>
+`;

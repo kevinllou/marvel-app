@@ -69,6 +69,7 @@ function CharacterId() {
                 type="button"
                 style={{ backgroundColor: isInStore ? 'grey' : 'red' }}
                 onClick={handleAddCharacterToFavorites}
+                data-testid="icon-heart"
               >
                 Like
                 {' '}
@@ -81,6 +82,7 @@ function CharacterId() {
                   pointerEvents: isCharacterHidden ? 'none' : 'auto',
                 }}
                 onClick={handleHideCharacter}
+                data-testid="icon-hide"
               >
                 Hide
                 {' '}
