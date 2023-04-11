@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Stories List Component should render list of stories 1`] = `
+<div>
+  <div
+    class="characters__grid"
+  >
+    <div
+      class="stories__gridItems"
+    >
+      <div
+        class="stories__card"
+      >
+        <div
+          class="stories__cardImage"
+        >
+          <img
+            alt=""
+            src="http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg"
+          />
+        </div>
+        <div
+          class="stories__cardBody"
+        >
+          <div
+            class="stories__name"
+          >
+            <a
+              href="/stories/7"
+            >
+              Investigating the murder of a teenage girl, Cage suddenly learns that a three-way gang war is under way for control of the turf
+            </a>
+          </div>
+          <div
+            class="stories__options"
+          >
+            <button
+              style="color: white;"
+              type="button"
+            >
+              <i
+                class="fa-sharp fa-solid fa-heart"
+              />
+            </button>
+            <button
+              style="color: white; pointer-events: auto;"
+              type="button"
+            >
+              <i
+                class="fa-solid fa-eye-slash"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="stories__gridItems"
+    >
+      <div
+        class="stories__card"
+      >
+        <div
+          class="stories__cardImage"
+        >
+          <img
+            alt=""
+            src="http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg"
+          />
+        </div>
+        <div
+          class="stories__cardBody"
+        >
+          <div
+            class="stories__name"
+          >
+            <a
+              href="/stories/8"
+            >
+              In the wake of September 11th, the world watched as firefighters, police officers and EMT workers selflessly risked their lives
+            </a>
+          </div>
+          <div
+            class="stories__options"
+          >
+            <button
+              style="color: white;"
+              type="button"
+            >
+              <i
+                class="fa-sharp fa-solid fa-heart"
+              />
+            </button>
+            <button
+              style="color: white; pointer-events: auto;"
+              type="button"
+            >
+              <i
+                class="fa-solid fa-eye-slash"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section
+    class="pagination"
+  >
+    <button
+      class="pagination__prev"
+      disabled=""
+      type="button"
+    >
+      <i
+        class="fa-solid fa-angle-left"
+      />
+    </button>
+    <button
+      class="pagination__btn pagination__btn--active"
+      style="pointer-events: auto;"
+      type="button"
+    >
+      1
+    </button>
+    <button
+      class="pagination__btn"
+      style="pointer-events: auto;"
+      type="button"
+    >
+      2
+    </button>
+    <button
+      class="pagination__btn"
+      style="pointer-events: auto;"
+      type="button"
+    >
+      3
+    </button>
+    <button
+      class="pagination__btn"
+      style="pointer-events: auto;"
+      type="button"
+    >
+      4
+    </button>
+    <button
+      class="pagination__btn"
+      style="pointer-events: auto;"
+      type="button"
+    >
+      5
+    </button>
+    <button
+      class="pagination__btn"
+      style="pointer-events: none;"
+      type="button"
+    >
+      ...
+    </button>
+    <button
+      class="pagination__btn"
+      style="pointer-events: auto;"
+      type="button"
+    >
+      78
+    </button>
+    <button
+      class="pagination__next"
+      type="button"
+    >
+      <i
+        class="fa-solid fa-angle-right"
+      />
+    </button>
+  </section>
+</div>
+`;
