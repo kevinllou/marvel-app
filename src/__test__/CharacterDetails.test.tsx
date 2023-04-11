@@ -1,8 +1,5 @@
 import { fireEvent, screen, waitFor } from '@testing-library/react';
-import * as reactRedux from 'react-redux';
-import userEvent from '@testing-library/user-event';
 import { renderWithMemoryRouter } from '../components/utils/wrapper';
-import mockCharacters from '../mocks/mockCharacters';
 
 describe('Characters details page', () => {
   afterEach(() => {
