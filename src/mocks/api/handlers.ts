@@ -1231,12 +1231,703 @@ const charactersStories = rest.get(`${ENDPOINTS.characters}/1011334/stories`, (r
 })));
 
 const comicHandler = rest.get(`${ENDPOINTS.comics}`, (req, res, ctx) => res(ctx.status(200), ctx.json(mockComics)));
+const comicDetail = rest.get(`${ENDPOINTS.comics}/3627`, (req, res, ctx) => res(ctx.status(200), ctx.json({
+  code: 200,
+  status: 'Ok',
+  copyright: '© 2023 MARVEL',
+  attributionText: 'Data provided by Marvel. © 2023 MARVEL',
+  attributionHTML: '<a href="http://marvel.com">Data provided by Marvel. © 2023 MARVEL</a>',
+  etag: '2d1e4ef1e616c71a7458be3d5013b0fa1ea77075',
+  data: {
+    offset: 0,
+    limit: 20,
+    total: 1,
+    count: 1,
+    results: [
+      {
+        id: 3627,
+        digitalId: 0,
+        title: 'Storm (2006)',
+        issueNumber: 0,
+        variantDescription: '',
+        description: "The epic, untold love story between Marvel's two pre-eminent Black super heroes -- Storm and the Black Panther -- is finally told, as only New York Times best-selling author Eric Jerome Dickey can do it!  An orphaned street urchin, living by her wits on the unforgiving plains of Africa as she struggles to harness her slowly-developing mutant powers...A warrior Prince, embarking on his rite of passage as he ponders the great responsibility in his future...And a crew of ruthless mercenaries who'll stop at nothing to capture an elusive creature of legend -- the fabled wind-rider.  What sparks occur when their paths intersect?  Don't miss out on this story, True Believer, as it builds to a July Event that will shake the entire Marvel Universe.\r<br>\r<br>32 PGS./T+ SUGGESTED FOR TEENS AND UP ...$2.99\r<br>",
+        modified: '2015-01-29T20:04:55-0500',
+        isbn: '',
+        upc: '',
+        diamondCode: '',
+        ean: '',
+        issn: '',
+        format: 'Comic',
+        pageCount: 0,
+        textObjects: [
+          {
+            type: 'issue_solicit_text',
+            language: 'en-us',
+            text: "The epic, untold love story between Marvel's two pre-eminent Black super heroes -- Storm and the Black Panther -- is finally told, as only New York Times best-selling author Eric Jerome Dickey can do it!  An orphaned street urchin, living by her wits on the unforgiving plains of Africa as she struggles to harness her slowly-developing mutant powers...A warrior Prince, embarking on his rite of passage as he ponders the great responsibility in his future...And a crew of ruthless mercenaries who'll stop at nothing to capture an elusive creature of legend -- the fabled wind-rider.  What sparks occur when their paths intersect?  Don't miss out on this story, True Believer, as it builds to a July Event that will shake the entire Marvel Universe.\r<br>\r<br>32 PGS./T+ SUGGESTED FOR TEENS AND UP ...$2.99\r<br>",
+          },
+        ],
+        resourceURI: 'http://gateway.marvel.com/v1/public/comics/3627',
+        urls: [
+          {
+            type: 'detail',
+            url: 'http://marvel.com/comics/issue/3627/storm_2006?utm_campaign=apiRef&utm_source=a629b570d8fcdc96fab0dfd25f5c77e8',
+          },
+        ],
+        series: {
+          resourceURI: 'http://gateway.marvel.com/v1/public/series/357',
+          name: 'Storm (2006)',
+        },
+        variants: [],
+        collections: [],
+        collectedIssues: [],
+        dates: [
+          {
+            type: 'onsaleDate',
+            date: '2029-12-31T00:00:00-0500',
+          },
+          {
+            type: 'focDate',
+            date: '-0001-11-30T00:00:00-0500',
+          },
+        ],
+        prices: [
+          {
+            type: 'printPrice',
+            price: 0,
+          },
+        ],
+        thumbnail: {
+          path: 'http://i.annihil.us/u/prod/marvel/i/mg/c/80/4bc5fe7a308d7',
+          extension: 'jpg',
+        },
+        images: [
+          {
+            path: 'http://i.annihil.us/u/prod/marvel/i/mg/c/80/4bc5fe7a308d7',
+            extension: 'jpg',
+          },
+        ],
+        creators: {
+          available: 3,
+          collectionURI: 'http://gateway.marvel.com/v1/public/comics/3627/creators',
+          items: [
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/creators/370',
+              name: 'Eric Jerome Dickey',
+              role: 'writer',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/creators/371',
+              name: 'David Hine',
+              role: 'penciller',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/creators/243',
+              name: 'Mike Mayhew',
+              role: 'penciller (cover)',
+            },
+          ],
+          returned: 3,
+        },
+        characters: {
+          available: 1,
+          collectionURI: 'http://gateway.marvel.com/v1/public/comics/3627/characters',
+          items: [
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/characters/1009629',
+              name: 'Storm',
+            },
+          ],
+          returned: 1,
+        },
+        stories: {
+          available: 2,
+          collectionURI: 'http://gateway.marvel.com/v1/public/comics/3627/stories',
+          items: [
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/stories/496',
+              name: 'Cover #496',
+              type: 'cover',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/stories/497',
+              name: 'Interior #497',
+              type: 'interiorStory',
+            },
+          ],
+          returned: 2,
+        },
+        events: {
+          available: 0,
+          collectionURI: 'http://gateway.marvel.com/v1/public/comics/3627/events',
+          items: [],
+          returned: 0,
+        },
+      },
+    ],
+  },
+})));
+const comicCharacters = rest.get(`${ENDPOINTS.comics}/3627/characters`, (req, res, ctx) => res(ctx.status(200), ctx.json({
+  code: 200,
+  status: 'Ok',
+  copyright: '© 2023 MARVEL',
+  attributionText: 'Data provided by Marvel. © 2023 MARVEL',
+  attributionHTML: '<a href="http://marvel.com">Data provided by Marvel. © 2023 MARVEL</a>',
+  etag: '8c3144ec134122a044930fc3f870c406ea9e056f',
+  data: {
+    offset: 0,
+    limit: 20,
+    total: 1,
+    count: 1,
+    results: [
+      {
+        id: 1009629,
+        name: 'Storm',
+        description: 'Ororo Monroe is the descendant of an ancient line of African priestesses, all of whom have white hair, blue eyes, and the potential to wield magic.',
+        modified: '2016-05-26T11:50:27-0400',
+        thumbnail: {
+          path: 'http://i.annihil.us/u/prod/marvel/i/mg/6/40/526963dad214d',
+          extension: 'jpg',
+        },
+        resourceURI: 'http://gateway.marvel.com/v1/public/characters/1009629',
+        comics: {
+          available: 862,
+          collectionURI: 'http://gateway.marvel.com/v1/public/characters/1009629/comics',
+          items: [
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/comics/17701',
+              name: 'Age of Apocalypse: The Chosen (1995) #1',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/comics/43498',
+              name: 'A+X (2012) #3',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/comics/37996',
+              name: 'Age of X: Alpha (2010) #1',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/comics/12676',
+              name: 'Alpha Flight (1983) #17',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/comics/12694',
+              name: 'Alpha Flight (1983) #33',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/comics/12725',
+              name: 'Alpha Flight (1983) #61',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/comics/12668',
+              name: 'Alpha Flight (1983) #127',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/comics/21511',
+              name: 'Astonishing X-Men (2004) #25',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/comics/21714',
+              name: 'Astonishing X-Men (2004) #26',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/comics/21941',
+              name: 'Astonishing X-Men (2004) #27',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/comics/23087',
+              name: 'Astonishing X-Men (2004) #28',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/comics/23937',
+              name: 'Astonishing X-Men (2004) #29',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/comics/24501',
+              name: 'Astonishing X-Men (2004) #30',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/comics/24503',
+              name: 'Astonishing X-Men (2004) #32',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/comics/24504',
+              name: 'Astonishing X-Men (2004) #33',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/comics/24505',
+              name: 'Astonishing X-Men (2004) #34',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/comics/30332',
+              name: 'Astonishing X-Men (2004) #35',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/comics/38318',
+              name: 'Astonishing X-Men (2004) #38',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/comics/38319',
+              name: 'Astonishing X-Men (2004) #40',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/comics/39318',
+              name: 'Astonishing X-Men (2004) #44',
+            },
+          ],
+          returned: 20,
+        },
+        series: {
+          available: 218,
+          collectionURI: 'http://gateway.marvel.com/v1/public/characters/1009629/series',
+          items: [
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/series/16450',
+              name: 'A+X (2012 - 2014)',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/series/3614',
+              name: 'Age of Apocalypse: The Chosen (1995)',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/series/13603',
+              name: 'Age of X: Alpha (2010)',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/series/2116',
+              name: 'Alpha Flight (1983 - 1994)',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/series/744',
+              name: 'Astonishing X-Men (2004 - 2013)',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/series/31906',
+              name: 'Atlantis Attacks: The Original Epic (2021)',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/series/9085',
+              name: 'Avengers (2010 - 2012)',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/series/354',
+              name: 'Avengers (1998 - 2004)',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/series/1991',
+              name: 'Avengers (1963 - 1996)',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/series/1340',
+              name: 'Avengers Assemble (2004)',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/series/15305',
+              name: 'Avengers Vs. X-Men (2012)',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/series/3626',
+              name: 'Bishop (1994 - 1995)',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/series/20912',
+              name: 'Black Panther (2016 - 2018)',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/series/784',
+              name: 'Black Panther (2005 - 2008)',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/series/24291',
+              name: 'Black Panther (2018 - 2021)',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/series/31553',
+              name: 'Black Panther (2021 - Present)',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/series/6804',
+              name: 'Black Panther (2009 - 2010)',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/series/2115',
+              name: 'Black Panther (1998 - 2003)',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/series/23017',
+              name: 'Black Panther and the Crew (2017)',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/series/3850',
+              name: 'Black Panther Annual (2008)',
+            },
+          ],
+          returned: 20,
+        },
+        stories: {
+          available: 1004,
+          collectionURI: 'http://gateway.marvel.com/v1/public/characters/1009629/stories',
+          items: [
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/stories/497',
+              name: 'Interior #497',
+              type: 'interiorStory',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/stories/648',
+              name: '1 of 2- Black Panther crossover',
+              type: 'cover',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/stories/650',
+              name: '2 of 2- Black Panther crossover',
+              type: 'cover',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/stories/737',
+              name: '2 of 5 - Savage Land',
+              type: 'interiorStory',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/stories/738',
+              name: 'Uncanny X-Men (1963) #457',
+              type: 'cover',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/stories/739',
+              name: '3 of 5 - Savage Land',
+              type: 'interiorStory',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/stories/742',
+              name: 'Uncanny X-Men (1963) #459',
+              type: 'cover',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/stories/743',
+              name: "5 of 5 - World's End",
+              type: 'interiorStory',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/stories/745',
+              name: '1 of 2 - Mojo Rising',
+              type: 'interiorStory',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/stories/747',
+              name: '2 of 2 - Mojo Rising',
+              type: 'interiorStory',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/stories/749',
+              name: '1 of 4 - Season of the Witch',
+              type: 'interiorStory',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/stories/760',
+              name: 'Uncanny X-Men (1963) #467',
+              type: 'cover',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/stories/761',
+              name: "2 of 3 - Grey's End",
+              type: 'interiorStory',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/stories/765',
+              name: '1 of 3 -',
+              type: 'interiorStory',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/stories/767',
+              name: "2 of 3 - Wand'ring Star",
+              type: 'interiorStory',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/stories/768',
+              name: 'UNCANNY X-MEN (1963) #471',
+              type: 'cover',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/stories/770',
+              name: 'UNCANNY X-MEN (1963) #472',
+              type: 'cover',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/stories/1420',
+              name: 'ULTIMATE X-MEN (2000) #43',
+              type: 'cover',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/stories/1422',
+              name: 'ULTIMATE X-MEN (2000) #44',
+              type: 'cover',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/stories/1426',
+              name: 'ULTIMATE X-MEN (2000) #49',
+              type: 'cover',
+            },
+          ],
+          returned: 20,
+        },
+        events: {
+          available: 30,
+          collectionURI: 'http://gateway.marvel.com/v1/public/characters/1009629/events',
+          items: [
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/events/116',
+              name: 'Acts of Vengeance!',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/events/227',
+              name: 'Age of Apocalypse',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/events/303',
+              name: 'Age of X',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/events/233',
+              name: 'Atlantis Attacks',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/events/310',
+              name: 'Avengers VS X-Men',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/events/238',
+              name: 'Civil War',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/events/318',
+              name: 'Dark Reign',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/events/240',
+              name: 'Days of Future Present',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/events/245',
+              name: 'Enemy of the State',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/events/246',
+              name: 'Evolutionary War',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/events/248',
+              name: 'Fall of the Mutants',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/events/249',
+              name: 'Fatal Attractions',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/events/251',
+              name: 'House of M',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/events/252',
+              name: 'Inferno',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/events/29',
+              name: 'Infinity War',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/events/334',
+              name: 'Inhumans Vs. X-Men',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/events/255',
+              name: 'Initiative',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/events/37',
+              name: 'Maximum Security',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/events/299',
+              name: 'Messiah CompleX',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/events/263',
+              name: 'Mutant Massacre',
+            },
+          ],
+          returned: 20,
+        },
+        urls: [
+          {
+            type: 'detail',
+            url: 'http://marvel.com/comics/characters/1009629/storm?utm_campaign=apiRef&utm_source=a629b570d8fcdc96fab0dfd25f5c77e8',
+          },
+          {
+            type: 'wiki',
+            url: 'http://marvel.com/universe/Storm?utm_campaign=apiRef&utm_source=a629b570d8fcdc96fab0dfd25f5c77e8',
+          },
+          {
+            type: 'comiclink',
+            url: 'http://marvel.com/comics/characters/1009629/storm?utm_campaign=apiRef&utm_source=a629b570d8fcdc96fab0dfd25f5c77e8',
+          },
+        ],
+      },
+    ],
+  },
+})));
+const comicStories = rest.get(`${ENDPOINTS.comics}/3627/stories`, (req, res, ctx) => res(ctx.status(200), ctx.json({
+  code: 200,
+  status: 'Ok',
+  copyright: '© 2023 MARVEL',
+  attributionText: 'Data provided by Marvel. © 2023 MARVEL',
+  attributionHTML: '<a href="http://marvel.com">Data provided by Marvel. © 2023 MARVEL</a>',
+  etag: '765e28fcfc8f7b54140ca195af81f77c2b61fba6',
+  data: {
+    offset: 0,
+    limit: 20,
+    total: 2,
+    count: 2,
+    results: [
+      {
+        id: 496,
+        title: 'Cover #496',
+        description: '',
+        resourceURI: 'http://gateway.marvel.com/v1/public/stories/496',
+        type: 'cover',
+        modified: '1969-12-31T19:00:00-0500',
+        thumbnail: null,
+        creators: {
+          available: 1,
+          collectionURI: 'http://gateway.marvel.com/v1/public/stories/496/creators',
+          items: [
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/creators/243',
+              name: 'Mike Mayhew',
+              role: 'penciller (cover)',
+            },
+          ],
+          returned: 1,
+        },
+        characters: {
+          available: 0,
+          collectionURI: 'http://gateway.marvel.com/v1/public/stories/496/characters',
+          items: [],
+          returned: 0,
+        },
+        series: {
+          available: 1,
+          collectionURI: 'http://gateway.marvel.com/v1/public/stories/496/series',
+          items: [
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/series/357',
+              name: 'Storm (2006)',
+            },
+          ],
+          returned: 1,
+        },
+        comics: {
+          available: 1,
+          collectionURI: 'http://gateway.marvel.com/v1/public/stories/496/comics',
+          items: [
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/comics/3627',
+              name: 'Storm (2006)',
+            },
+          ],
+          returned: 1,
+        },
+        events: {
+          available: 0,
+          collectionURI: 'http://gateway.marvel.com/v1/public/stories/496/events',
+          items: [],
+          returned: 0,
+        },
+        originalIssue: {
+          resourceURI: 'http://gateway.marvel.com/v1/public/comics/3627',
+          name: 'Storm (2006)',
+        },
+      },
+      {
+        id: 497,
+        title: 'Interior #497',
+        description: '',
+        resourceURI: 'http://gateway.marvel.com/v1/public/stories/497',
+        type: 'story',
+        modified: '1969-12-31T19:00:00-0500',
+        thumbnail: null,
+        creators: {
+          available: 2,
+          collectionURI: 'http://gateway.marvel.com/v1/public/stories/497/creators',
+          items: [
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/creators/370',
+              name: 'Eric Jerome Dickey',
+              role: 'writer',
+            },
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/creators/371',
+              name: 'David Hine',
+              role: 'penciller',
+            },
+          ],
+          returned: 2,
+        },
+        characters: {
+          available: 1,
+          collectionURI: 'http://gateway.marvel.com/v1/public/stories/497/characters',
+          items: [
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/characters/1009629',
+              name: 'Storm',
+            },
+          ],
+          returned: 1,
+        },
+        series: {
+          available: 1,
+          collectionURI: 'http://gateway.marvel.com/v1/public/stories/497/series',
+          items: [
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/series/357',
+              name: 'Storm (2006)',
+            },
+          ],
+          returned: 1,
+        },
+        comics: {
+          available: 1,
+          collectionURI: 'http://gateway.marvel.com/v1/public/stories/497/comics',
+          items: [
+            {
+              resourceURI: 'http://gateway.marvel.com/v1/public/comics/3627',
+              name: 'Storm (2006)',
+            },
+          ],
+          returned: 1,
+        },
+        events: {
+          available: 0,
+          collectionURI: 'http://gateway.marvel.com/v1/public/stories/497/events',
+          items: [],
+          returned: 0,
+        },
+        originalIssue: {
+          resourceURI: 'http://gateway.marvel.com/v1/public/comics/3627',
+          name: 'Storm (2006)',
+        },
+      },
+    ],
+  },
+})));
 const handlers = [
   charactersHandler,
   charactersDetailHandler,
   charactersComics,
   charactersStories,
   comicHandler,
+  comicDetail,
+  comicCharacters,
+  comicStories,
 ];
 
 export default handlers;

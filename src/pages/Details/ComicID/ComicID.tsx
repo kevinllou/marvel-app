@@ -65,6 +65,7 @@ function ComicId() {
                 type="button"
                 style={{ backgroundColor: isComicInStore ? 'grey' : 'red' }}
                 onClick={handleAddComicToFavorites}
+                data-testid="icon-heart"
               >
                 Like
                 {' '}
@@ -77,6 +78,7 @@ function ComicId() {
                   pointerEvents: isComicHidden ? 'none' : 'auto',
                 }}
                 onClick={handleHideComic}
+                data-testid="icon-hide"
               >
                 Hide
                 {' '}
