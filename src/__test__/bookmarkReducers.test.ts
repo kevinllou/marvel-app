@@ -62,7 +62,7 @@ it('should delete one character from bookmarks', () => {
     comics: [],
     stories: [],
   };
-  const action = removeCharacterOfFavorites(mockCharacters.data?.results?.[1].id);
+  const action = removeCharacterOfFavorites(mockCharacters.data?.results?.[1]?.id);
   const newState = bookmarksReducer(previousState, action);
   expect(newState.characters).toEqual([]);
 });
@@ -73,7 +73,7 @@ it('should delete one comic from bookmarks', () => {
     comics: [],
     stories: [],
   };
-  const action = removeComicOfFavorites(mockComics.data.results?.[1].id);
+  const action = removeComicOfFavorites(mockComics.data.results?.[1]?.id);
   const newState = bookmarksReducer(previousState, action);
   expect(newState.comics).toEqual([]);
 });
@@ -84,7 +84,7 @@ it('should delete one story from bookmarks', () => {
     comics: [],
     stories: [],
   };
-  const action = removeStoryOfFavorites(mockStories.data.results?.[1].id);
+  const action = removeStoryOfFavorites(mockStories.data.results?.[1]?.id);
   const newState = bookmarksReducer(previousState, action);
   expect(newState.stories).toEqual([]);
 });

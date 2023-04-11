@@ -13,9 +13,9 @@ it('should hide a character from the list', () => {
     comics: [],
     stories: [],
   };
-  const action = hideCharacter(mockCharacters.results?.[0].id);
+  const action = hideCharacter(mockCharacters.data.results?.[0].id);
   const newState = hiddenReducer(previousState, action);
-  expect(newState.characters).toEqual([mockCharacters.results?.[0].id]);
+  expect(newState.characters).toEqual([mockCharacters.data.results?.[0].id]);
 });
 
 it('should hide a comic from the list', () => {
@@ -24,9 +24,9 @@ it('should hide a comic from the list', () => {
     comics: [],
     stories: [],
   };
-  const action = hideComic(mockComics?.[0].id);
+  const action = hideComic(mockComics.data.results?.[0].id);
   const newState = hiddenReducer(previousState, action);
-  expect(newState.comics).toEqual([mockComics?.[0].id]);
+  expect(newState.comics).toEqual([mockComics?.data.results[0].id]);
 });
 
 it('should hide a story from the list', () => {
@@ -35,9 +35,9 @@ it('should hide a story from the list', () => {
     comics: [],
     stories: [],
   };
-  const action = hideStory(mockStories?.[0].id);
+  const action = hideStory(mockStories.data.results?.[0].id);
   const newState = hiddenReducer(previousState, action);
-  expect(newState.stories).toEqual([mockStories?.[0].id]);
+  expect(newState.stories).toEqual([mockStories.data.results?.[0].id]);
 });
 
 it('should reset all hidden elements', () => {
